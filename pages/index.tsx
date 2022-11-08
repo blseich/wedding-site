@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import color_bg from '../public/Background_Staircase.jpg';
 import bw_bg from '../public/BW_Background_Staircase.jpg';
 import say_i_do from '../public/Say_I_Do.svg';
