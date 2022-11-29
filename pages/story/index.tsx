@@ -6,7 +6,7 @@ import pin from '../../public/pin.svg';
 import { base } from '../../styles/colors';
 import styled from '@emotion/styled';
 
-const Background = styled.div`
+const Background = styled.div<{ x: number, y: number}>`
     position: fixed;
     height: 100vh;
     width: 100%;
@@ -16,7 +16,7 @@ const Background = styled.div`
     top: 0;
   `
 
-const FirstMet = ({ y, velocity}) => {
+const FirstMet = ({ y, velocity}: {y: number, velocity: number}) => {
   const scrollPos = y % velocity;
   const fadeThreshold = velocity / 4;
   const fadeInOpacity = scrollPos < fadeThreshold ? scrollPos * 100 / fadeThreshold : 100
@@ -74,7 +74,7 @@ const storyConfig = [{
 },{
   start: [43, 43],
   end: [43, 43],
-  content: (props) => <FirstMet {...props}/>
+  content: (props: JSX.IntrinsicAttributes & { y: number; velocity: number; }) => <FirstMet {...props}/>
 }];
 
 const overlay = (y: number, velocity: number): JSX.Element | null => {
