@@ -3,10 +3,10 @@ import Image from 'next/image';
 import color_bg from '../public/BackgroundStairs_Centered-color.jpg';
 import bw_bg from '../public/BackgroundStairs_Centered-bw.jpg';
 import say_i_do from '../public/Say_I_Do.svg';
-import big_heads_in_sun from '../public/Maddi&Brandon_Couples-47.jpg';
 import { Playfair_Display_SC, Francois_One, Raleway } from '@next/font/google';
 import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
+import OurStory from './our-story';
 
 const headerFont = Playfair_Display_SC({
   weight: "400",
@@ -41,16 +41,6 @@ const Header = styled.h1`
   text-shadow: 1px 1px 2px black;
   place-self: end;
 `;
-
-const Link = styled.a`
-  font-family: ${linkFont.style.fontFamily};
-  font-weight: ${linkFont.style.fontWeight};
-  color: #2f482f;
-  font-size: 1.25rem;
-  text-align: right;
-  margin-top: 0.5rem;
-  display: inherit;
-`
 
 const BWBackground = styled.img`
   z-index: -1;
@@ -102,7 +92,7 @@ const Date = styled.div`
   grid-row-start: 3;
 
   span {
-    font-size: .785rem;
+    font-size: 2.5rem;
   }
 `
 
@@ -124,8 +114,8 @@ export default function Home() {
         }}>
           <Header>Maddi &<br/>Brandon</Header>
           <Image 
-            width={say_i_do.width}
-            height={say_i_do.height}
+            width={256}
+            height={40}
             style={{width: '16rem', filter: 'drop-shadow(1px 1px 2px black)'}}
             src={say_i_do.src}
             alt={'say i do'}
@@ -133,21 +123,10 @@ export default function Home() {
         </div>
         <Date>5<span>&#8901;</span>13<span>&#8901;</span>23</Date>
       </Main>
+      <OurStory />
       <Main>
-        <Image
-          width={big_heads_in_sun.width}
-          height={big_heads_in_sun.height}
-          style={{
-            position: 'fixed',
-            width: '95%',
-            height: '100%',
-            zIndex: '-2',
-            marginRight: 'auto',
-            marginLeft: 'auto',
-          }}
-          src={big_heads_in_sun.src}/>
 
-      </Main>
+        </Main>
     </div>
   )
 }
