@@ -1,7 +1,9 @@
 import Head from 'next/head'
+import Image from 'next/image';
 import color_bg from '../public/BackgroundStairs_Centered-color.jpg';
 import bw_bg from '../public/BackgroundStairs_Centered-bw.jpg';
 import say_i_do from '../public/Say_I_Do.svg';
+import big_heads_in_sun from '../public/Maddi&Brandon_Couples-47.jpg';
 import { Playfair_Display_SC, Francois_One, Raleway } from '@next/font/google';
 import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
@@ -37,6 +39,7 @@ const Header = styled.h1`
   line-height: 2.5rem;
   letter-spacing: .5rem;
   text-shadow: 1px 1px 2px black;
+  place-self: end;
 `;
 
 const Link = styled.a`
@@ -52,9 +55,8 @@ const Link = styled.a`
 const BWBackground = styled.img`
   z-index: -1;
   position: absolute;
-  height: 100vh;
-  max-width: 100vw;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   object-fit: cover;
   background-position: center;
 `;
@@ -62,10 +64,8 @@ const BWBackground = styled.img`
 const ColorBackground = styled.img`
   z-index: -1;
   position: absolute;
-  height: 100vh;
-  max-width: 50vw;
-  max-width: 100vw;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   object-fit: cover;
   background-position: center;
   animation: ${fadingBgImage}
@@ -79,20 +79,31 @@ const ColorBackground = styled.img`
 `;
 
 const Main = styled.main`
-  display: flex;
+  display: grid;
+  gird-template-rows: 2fr 1fr 2fr;
   height: 100vh;
   flex-direction: column;
   background: rgba(0, 0, 0, 0);
   padding: .5rem;
   align-items: center;
   justify-content: center;
+  box-shadow: 0px 10px 25px grey;
 `
 
 const Date = styled.div`
-  margin-top: auto;
   font-family: ${dateFont.style.fontFamily};
-  color: #2f482f;
+  color: #fffaf3;
   font-size: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-shadow: 1px 1px 2px black;
+  place-self: center;
+  grid-row-start: 3;
+
+  span {
+    font-size: .785rem;
+  }
 `
 
 export default function Home() {
@@ -109,13 +120,32 @@ export default function Home() {
         <div style={{
           display: 'flex',
           flexDirection: 'column',
-          marginTop: '-30vh',
+          placeSelf: 'end',
         }}>
           <Header>Maddi &<br/>Brandon</Header>
-          <img style={{width: '16rem', filter: 'drop-shadow(1px 1px 2px black)'}} src={say_i_do.src} />
+          <Image 
+            width={say_i_do.width}
+            height={say_i_do.height}
+            style={{width: '16rem', filter: 'drop-shadow(1px 1px 2px black)'}}
+            src={say_i_do.src}
+            alt={'say i do'}
+          />
         </div>
+        <Date>5<span>&#8901;</span>13<span>&#8901;</span>23</Date>
       </Main>
       <Main>
+        <Image
+          width={big_heads_in_sun.width}
+          height={big_heads_in_sun.height}
+          style={{
+            position: 'fixed',
+            width: '95%',
+            height: '100%',
+            zIndex: '-2',
+            marginRight: 'auto',
+            marginLeft: 'auto',
+          }}
+          src={big_heads_in_sun.src}/>
 
       </Main>
     </div>
