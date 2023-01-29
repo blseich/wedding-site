@@ -170,7 +170,7 @@ const OurStory = () => {
               <Image
                 style={{
                   width: 'auto',
-                  height: '42%',
+                  height: '75%',
                   borderRadius: '1rem',
                   border: '3px solid #132f38'
                 }}
