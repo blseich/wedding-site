@@ -75,7 +75,6 @@ const Main = styled.main`
   padding: .5rem;
   align-items: center;
   justify-content: center;
-  box-shadow: 0px 10px 25px grey;
 `
 
 const Date = styled.div`

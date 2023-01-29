@@ -1,32 +1,30 @@
 /*** @jsx, jsx */
 import React, { useState } from 'react';
-import Image, { StaticImageData } from 'next/image';
-import { Parallax, Background } from 'react-parallax';
+import { Parallax, ParallaxBanner, ParallaxBannerLayer } from 'react-scroll-parallax';
+import Image from 'next/image';
 import styled from '@emotion/styled';
-import { jsx, css, keyframes } from '@emotion/react';
+import { css, keyframes } from '@emotion/react';
 import big_heads_in_sun_landscape from '../../public/Maddi&Brandon_Couples-47.jpg';
 import big_heads_in_sun_portrait from '../../public/Maddi&Brandon_Couples-48.jpg';
-import columbus_map from '../../public/Columbus-Apple-Map.jpg';
-import columbus_map_dest_1 from '../../public/Columbus-Apple-Map_dest-1.jpg';
-import columbus_map_dest_2 from '../../public/Columbus-Apple-Map_dest-2.jpg';
-import columbus_map_dest_3 from '../../public/Columbus-Apple-Map_dest-3.jpg';
-import columbus_map_dest_4 from '../../public/Columbus-Apple-Map_dest-4.jpg';
-import columbus_map_dest_5 from '../../public/Columbus-Apple-Map_dest-5.jpg';
-import columbus_map_dest_6 from '../../public/Columbus-Apple-Map_dest-6.jpg';
-import columbus_map_dest_7 from '../../public/Columbus-Apple-Map_dest-7.jpg';
 import our_story from '../../public/Our_Story.svg';
-import { Francois_One } from '@next/font/google';
+import TitleLink from './TitleLink';
+import { Playfair_Display_SC, Raleway } from '@next/font/google';
 import collage from '../../public/collage.jpg';
 
 
-const textFont = Francois_One({
+const headerFont = Playfair_Display_SC({
+  weight: "400",
+  subsets: ['latin'],
+});
+
+const textFont = Raleway({
   weight: "400",
   subsets: ['latin'],
 });
 
 const OurStoryBackground = styled.div`
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   background-position: center;
   background-repeat: no-repeat;
   @media (orientation: landscape) {
@@ -35,7 +33,7 @@ const OurStoryBackground = styled.div`
   }
   @media (orientation: portrait) {
     background-image: url(${big_heads_in_sun_portrait.src});
-    background-size: auto 125%;
+    background-size: auto 50%;
   }
 `
 
@@ -46,24 +44,6 @@ const Title = styled.div`
   height: 100vh;
   width: 100vw;
 `
-const destinations =  [
-  { top: 53, left: 83, img: columbus_map},
-  { top: 49, left: 53, img: columbus_map_dest_1 },
-  { top: 31, left: 50, img: columbus_map_dest_2 },
-  { top: 12, left: 0, img: columbus_map_dest_3 },
-  { top: 83, left: 53, img: columbus_map_dest_4 },
-];
-
-
-const animateBackgroundScrollTo = (
-  start:  {top: number, left: number, img: StaticImageData},
-  end: {top: number, left: number, img: StaticImageData}) => (
-  keyframes`
-    0% {background-position: ${start.top}% ${start.left}%; background-image: url(${start.img.src})}
-    50% {background-position: ${end.top}% ${end.left}%;}
-    100% { background-image: url(${end.img.src});}
-  `
-);
 
 const bounceX = keyframes`
     from { left: 0; } to { left: calc(-650px + 100%); }
@@ -73,94 +53,106 @@ const bounceY = keyframes`
     from { top: 0; } to { top: calc(-450px + 100%); }
 `;
 
-// const bounceY = keyframes`
-//     from { top: 0; } to {top: -53%}
-// `
-
 const OurStory = () => {
-  const [dest, setDest] = useState(0);
-
+  const [meetProgress, setMeetProgress] = useState(0);
+  const [liveProgress, setLiveProgress] = useState(0);
+  const [travelProgress, setTravelProgress] = useState(0);
+  const [proposalProgress, setProposalProgress] = useState(0);
 
   return (
     <>
-      <Parallax strength={500}>
-        <Background>
+      <ParallaxBanner style={{height: '100%', width: '100%'}}>
+        <ParallaxBannerLayer speed={-50}>
           <OurStoryBackground />
-        </Background>
-        <Title>
-        <Image 
-            width={256}
-            height={40}
-            style={{width: '16rem', filter: 'drop-shadow(1px 1px 2px black)'}}
-            src={our_story.src}
-            alt={'say i do'}
-          />
-        </Title>
-      </Parallax>
+        </ParallaxBannerLayer>
+        <ParallaxBannerLayer>
+          <Title>
+          <Image 
+              width={256}
+              height={40}
+              style={{width: '16rem', filter: 'drop-shadow(1px 1px 2px black)'}}
+              src={our_story.src}
+              alt={'say i do'}
+            />
+          </Title>
+        </ParallaxBannerLayer>
+      </ParallaxBanner>
       <div style={{
-        height: '100vh',
-        width: '100vw',
-        display: 'grid',
-        placeItems: 'center',
+        maxWidth: '650px',
+        display: 'flex',
+        alignItems: 'top',
       }}>
         <div
           css={css`
-            height: 95%;
-            width: 95%;
-            max-width: 650px;
-            max-height: 750px;
-            border: 5px solid #132f38;
-            background-image: url(${destinations[dest].img.src});
-            background-size: auto 175%;
-            background-repeat: no-repeat;
-            background-position: ${destinations[dest].top}% ${destinations[dest].left}%;
-            animation: ${animateBackgroundScrollTo(destinations[dest > 0 ? dest-1 : dest], destinations[dest])} 1.2s ease;
-            animation-fill-mode: forwards;
+            display: flex;
+            justify-content: space-around;
+            flex-direction: column;
+            height: 75%;
+            font-family: ${headerFont.style.fontFamily};
+            font-weight: ${headerFont.style.fontWeight};
+            text-align: right;
+            color: #fffaf3;
+            border-right: 1px solid #fffaf3;
+            padding: 0 1rem;
+            flex-grow: 0;
+            position: sticky;
+            top: 12.5%;
+            margin-top: 12.5%;
+            height: 75vh;
           `}
         >
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateRows: '1fr 15% 1fr',
-              gridTemplateColumns: '1fr 15% 1fr',
-              height: '100%',
-              width: '100%',
-              fontFamily: textFont.style.fontFamily,
-            }}>
-              <div
-                style={{
-                  gridColumn: '1 / span 3',
-                  margin: '1rem',
-                  padding: '.5rem',
-                  backdropFilter: 'blur(6px)',
-                  borderRadius: '2rem',
-                  border: '3px solid #132f38',
-                  color: '#132f38',
-                  textAlign: 'center',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}
-              >
-                Our story centers around the city of Columbus. It&apos;s where we met. It&apos;s where we&apos;ve lived. It&apos;s where we fell in love...<br /><span style={{fontSize: '.75rem'}}>(although technically Brandon waited until a trip to Dallas to mention it)</span><br/> Columbus holds so many special memories in so many different places for us.
-              </div>
-              <div
-                style={{
-                  gridRow: '3 / span 1',
-                  gridColumn: '1 / span 3',
-                  backgroundImage: `url(${collage.src})`,
-                  backgroundPosition: 'center',
-                  backgroundRepeat: 'no-repeat',
-                  width: '95%',
-                  height: '95%',
-                  borderRadius: '2rem',
-                  border: '3px solid #132f38',
-                  position: 'relative',
-                  overflow: 'hidden',
-                  placeSelf: 'center'
-                }}
-              >
+          <TitleLink 
+            title={'Meet'}
+            progress={meetProgress}
+          />
+          <TitleLink 
+            title={'Live'}
+            progress={liveProgress}
+          />
+          <TitleLink 
+            title={'Travel'}
+            progress={travelProgress}
+          />
+          <TitleLink 
+            title={'Proposal'}
+            progress={proposalProgress}
+          />
+        </div>
+        <div
+          css={css`
+            flex-grow: 1;
+            padding: 0 1rem;
+            color: #fffaf3;
+            font-family: ${textFont.style.fontFamily};
+            display: flex;
+            gap: 100vh;
+            flex-direction: column;
+            margin: 100vh 0;
+          `}
+        >
+          <Parallax
+            id="Meet"
+            onProgressChange={(progress) => setMeetProgress(progress)}
+          >
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur quis justo nec ex efficitur pellentesque. Nam tempor rutrum nulla tempus lacinia. Cras lacinia, velit venenatis feugiat dictum, dolor erat congue nisi, sit amet maximus orci turpis a metus. Maecenas molestie arcu nec ligula rutrum, vitae suscipit erat congue. Nam nec viverra metus. Praesent congue leo et mi venenatis sagittis. Proin mollis pulvinar nibh sit amet hendrerit. Nam nec eros facilisis, suscipit lorem ac, dapibus odio. Duis tortor quam, pellentesque ut gravida eget, fringilla sit amet dui. Nam turpis elit, malesuada a aliquet ac, varius in orci. Integer facilisis finibus augue, ut maximus nibh malesuada venenatis. Sed sodales ultrices odio. Quisque nec libero id ante posuere ultrices. Fusce interdum euismod auctor. Quisque gravida consectetur tempor. Quisque dapibus auctor risus id fringilla.
+         </Parallax>
+         <Parallax
+            id="Live"
+            onProgressChange={(progress) => setLiveProgress(progress)}>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur quis justo nec ex efficitur pellentesque. Nam tempor rutrum nulla tempus lacinia. Cras lacinia, velit venenatis feugiat dictum, dolor erat congue nisi, sit amet maximus orci turpis a metus. Maecenas molestie arcu nec ligula rutrum, vitae suscipit erat congue. Nam nec viverra metus. Praesent congue leo et mi venenatis sagittis. Proin mollis pulvinar nibh sit amet hendrerit. Nam nec eros facilisis, suscipit lorem ac, dapibus odio. Duis tortor quam, pellentesque ut gravida eget, fringilla sit amet dui. Nam turpis elit, malesuada a aliquet ac, varius in orci. Integer facilisis finibus augue, ut maximus nibh malesuada venenatis. Sed sodales ultrices odio. Quisque nec libero id ante posuere ultrices. Fusce interdum euismod auctor. Quisque gravida consectetur tempor. Quisque dapibus auctor risus id fringilla.
+         </Parallax>
+         <Parallax
+            id="Travel"
+            onProgressChange={(progress) => setTravelProgress(progress)}>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur quis justo nec ex efficitur pellentesque. Nam tempor rutrum nulla tempus lacinia. Cras lacinia, velit venenatis feugiat dictum, dolor erat congue nisi, sit amet maximus orci turpis a metus. Maecenas molestie arcu nec ligula rutrum, vitae suscipit erat congue. Nam nec viverra metus. Praesent congue leo et mi venenatis sagittis. Proin mollis pulvinar nibh sit amet hendrerit. Nam nec eros facilisis, suscipit lorem ac, dapibus odio. Duis tortor quam, pellentesque ut gravida eget, fringilla sit amet dui. Nam turpis elit, malesuada a aliquet ac, varius in orci. Integer facilisis finibus augue, ut maximus nibh malesuada venenatis. Sed sodales ultrices odio. Quisque nec libero id ante posuere ultrices. Fusce interdum euismod auctor. Quisque gravida consectetur tempor. Quisque dapibus auctor risus id fringilla.
+         </Parallax>
+         <Parallax
+            id="Proposal"
+            onProgressChange={(progress) => setProposalProgress(progress)}>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur quis justo nec ex efficitur pellentesque. Nam tempor rutrum nulla tempus lacinia. Cras lacinia, velit venenatis feugiat dictum, dolor erat congue nisi, sit amet maximus orci turpis a metus. Maecenas molestie arcu nec ligula rutrum, vitae suscipit erat congue. Nam nec viverra metus. Praesent congue leo et mi venenatis sagittis. Proin mollis pulvinar nibh sit amet hendrerit. Nam nec eros facilisis, suscipit lorem ac, dapibus odio. Duis tortor quam, pellentesque ut gravida eget, fringilla sit amet dui. Nam turpis elit, malesuada a aliquet ac, varius in orci. Integer facilisis finibus augue, ut maximus nibh malesuada venenatis. Sed sodales ultrices odio. Quisque nec libero id ante posuere ultrices. Fusce interdum euismod auctor. Quisque gravida consectetur tempor. Quisque dapibus auctor risus id fringilla.
+         </Parallax>
+        </div>
+{/*         
                 <Image 
                 css={css`
                     position: absolute;
@@ -171,12 +163,7 @@ const OurStory = () => {
                       animation: ${bounceX} 4s linear 0s infinite alternate, ${bounceY} 6.8s linear 0s infinite alternate;
                     }
                   `}
-                src={collage.src} height={collage.height} width={collage.width} alt={''}/>
-              </div>
-
-          </div>
-          <button onClick={() => setDest((dest + 1) % 5)}>CLICK ME YOU FOOL</button>
-        </div>
+                src={collage.src} height={collage.height} width={collage.width} alt={''}/> */}
       </div>
     </>
   )
