@@ -10,6 +10,8 @@ import our_story from '../../public/Our_Story.svg';
 import TitleLink from './TitleLink';
 import TitleSection from './TitleSection';
 import MeetSection from './MeetSection';
+import LiveSection from './LiveSection';
+import TravelSection from './TravelSection';
 import { Playfair_Display_SC, Raleway } from '@next/font/google';
 import collage from '../../public/collage.jpg';
 
@@ -46,14 +48,6 @@ const Title = styled.div`
   height: 100vh;
   width: 100vw;
 `
-
-const bounceX = keyframes`
-    from { left: 0; } to { left: calc(-650px + 100%); }
-`;
-
-const bounceY = keyframes`
-    from { top: 0; } to { top: calc(-450px + 100%); }
-`;
 
 const OurStory = () => {
   const [meetProgress, setMeetProgress] = useState(0);
@@ -140,15 +134,15 @@ const OurStory = () => {
             <MeetSection />
          </TitleSection>
          <TitleSection
-            id="Meet"
+            id="Live"
             onProgress={setLiveProgress}
           >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur quis justo nec ex efficitur pellentesque. Nam tempor rutrum nulla tempus lacinia. Cras lacinia, velit venenatis feugiat dictum, dolor erat congue nisi, sit amet maximus orci turpis a metus. Maecenas molestie arcu nec ligula rutrum, vitae suscipit erat congue. Nam nec viverra metus. Praesent congue leo et mi venenatis sagittis. Proin mollis pulvinar nibh sit amet hendrerit. Nam nec eros facilisis, suscipit lorem ac, dapibus odio. Duis tortor quam, pellentesque ut gravida eget, fringilla sit amet dui. Nam turpis elit, malesuada a aliquet ac, varius in orci. Integer facilisis finibus augue, ut maximus nibh malesuada venenatis. Sed sodales ultrices odio. Quisque nec libero id ante posuere ultrices. Fusce interdum euismod auctor. Quisque gravida consectetur tempor. Quisque dapibus auctor risus id fringilla.
+            <LiveSection />
          </TitleSection>
          <TitleSection
             id="Travel"
             onProgress={setTravelProgress}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur quis justo nec ex efficitur pellentesque. Nam tempor rutrum nulla tempus lacinia. Cras lacinia, velit venenatis feugiat dictum, dolor erat congue nisi, sit amet maximus orci turpis a metus. Maecenas molestie arcu nec ligula rutrum, vitae suscipit erat congue. Nam nec viverra metus. Praesent congue leo et mi venenatis sagittis. Proin mollis pulvinar nibh sit amet hendrerit. Nam nec eros facilisis, suscipit lorem ac, dapibus odio. Duis tortor quam, pellentesque ut gravida eget, fringilla sit amet dui. Nam turpis elit, malesuada a aliquet ac, varius in orci. Integer facilisis finibus augue, ut maximus nibh malesuada venenatis. Sed sodales ultrices odio. Quisque nec libero id ante posuere ultrices. Fusce interdum euismod auctor. Quisque gravida consectetur tempor. Quisque dapibus auctor risus id fringilla.
+           <TravelSection />
          </TitleSection>
          <TitleSection
             id="Proposal"
