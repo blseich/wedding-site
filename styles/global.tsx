@@ -10,6 +10,7 @@ const globalStyles = (
         margin: 0;
         font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
         Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+        background: #132a2f;
       }
       * {
         box-sizing: border-box;
