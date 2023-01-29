@@ -16,11 +16,8 @@ import columbus_map_dest_6 from '../../public/Columbus-Apple-Map_dest-6.jpg';
 import columbus_map_dest_7 from '../../public/Columbus-Apple-Map_dest-7.jpg';
 import our_story from '../../public/Our_Story.svg';
 import { Francois_One } from '@next/font/google';
-import brew_at_the_zoo from '../../public/brew_at_the_zoo-sm.jpg';
-import kayaking from '../../public/kayaking-sm.jpg';
-import hiking from '../../public/hiking.jpg';
-import fourthOfJuly from '../../public/fourth-of-july.jpg';
-import bryanWedding from '../../public/bryan-wedding.jpg';
+import collage from '../../public/collage.jpg';
+
 
 const textFont = Francois_One({
   weight: "400",
@@ -68,6 +65,18 @@ const animateBackgroundScrollTo = (
   `
 );
 
+const bounceX = keyframes`
+    from { left: 0; } to { left: calc(-650px + 100%); }
+`;
+
+const bounceY = keyframes`
+    from { top: 0; } to { top: calc(-450px + 100%); }
+`;
+
+// const bounceY = keyframes`
+//     from { top: 0; } to {top: -53%}
+// `
+
 const OurStory = () => {
   const [dest, setDest] = useState(0);
 
@@ -112,8 +121,8 @@ const OurStory = () => {
           <div
             style={{
               display: 'grid',
-              gridTemplateRows: '33% auto 33%',
-              gridTemplateColumns: '33% auto 33%',
+              gridTemplateRows: '1fr 15% 1fr',
+              gridTemplateColumns: '1fr 15% 1fr',
               height: '100%',
               width: '100%',
               fontFamily: textFont.style.fontFamily,
@@ -133,119 +142,33 @@ const OurStory = () => {
                   alignItems: 'center',
                   justifyContent: 'center',
                 }}
-              >Our story centers around the city of Columbus. It&apos;s where we met. It&apos;s where we&apos;ve lived. It&apos;s where we fell in love...<br /><span style={{fontSize: '.75rem'}}>(although technically Brandon waited until a trip to Dallas to mention it)</span><br/> Columbus holds so many special memories in so many different places for us.</div>
-              <div
-                style={{
-                  gridRow: '2',
-                  padding: '0.5rem',
-                  display: 'grid',
-                  alignItems: 'center',
-                }}
               >
-
-                <Image
-                  style={{
-                    width: '80%',
-                    height: 'auto',
-                    borderRadius: '1rem',
-                    border: '3px solid #132f38'
-                  }}
-                  src={kayaking.src}
-                  height={kayaking.height}
-                  width={kayaking.width}
-                  alt="Maddi and Brandon kayaing with Columbus in the backgorund. Maddi is gorgeous. Brandon looks ok in this one."
-                />
+                Our story centers around the city of Columbus. It&apos;s where we met. It&apos;s where we&apos;ve lived. It&apos;s where we fell in love...<br /><span style={{fontSize: '.75rem'}}>(although technically Brandon waited until a trip to Dallas to mention it)</span><br/> Columbus holds so many special memories in so many different places for us.
               </div>
               <div
                 style={{
-                  gridRow: '2',
-                  gridColumn: '2',
-                  padding: '.5rem',
-                  alignSelf: 'end',
-                  display: 'grid',
-                  alignItems: 'end',
-                  justifyContent: 'center', 
-                }}
-              >
-              <Image
-                style={{
-                  width: 'auto',
-                  height: '75%',
-                  borderRadius: '1rem',
-                  border: '3px solid #132f38'
-                }}
-                src={fourthOfJuly.src}
-                height={fourthOfJuly.height}
-                width={fourthOfJuly.width}
-                alt="Maddi and Brandon at brew at the zoo. Maddi is gorgeous. Brandon is not."
-              />
-              </div>
-              <div
-                style={{
-                  gridRow: '2',
-                  gridColumn: '3 / span 1',
-                  padding: '.5rem',
-                  display: 'grid',
-                  placeItems: 'center',
-                  alignSelf: 'start',
-                }}
-              >
-              <Image
-                style={{
-                  width: '75%',
-                  height: 'auto',
-                  borderRadius: '1rem',
+                  gridRow: '3 / span 1',
+                  gridColumn: '1 / span 3',
+                  backgroundImage: `url(${collage.src})`,
+                  backgroundPosition: 'center',
+                  backgroundRepeat: 'no-repeat',
+                  width: '95%',
+                  height: '95%',
+                  borderRadius: '2rem',
                   border: '3px solid #132f38',
-                }}
-                src={bryanWedding.src}
-                height={bryanWedding.height}
-                width={bryanWedding.width}
-                alt="Maddi and Brandon at brew at the zoo. Maddi is gorgeous. Brandon is not."
-              />
-              </div>
-              <div
-                style={{
-                  gridRow: '3',
-                  gridColumn: '1 / span 1',
-                  padding: '.5rem', 
-                }}
-              >
-              <Image
-                style={{
-                  width: '85%',
-                  height: 'auto',
-                  borderRadius: '1rem',
-                  border: '3px solid #132f38'
-                }}
-                src={hiking.src}
-                height={hiking.height}
-                width={hiking.width}
-                alt="Maddi and Brandon at brew at the zoo. Maddi is gorgeous. Brandon is not."
-              />
-              </div>
-              <div
-                style={{
-                  gridRow: '3',
-                  gridColumn: '2 / span 2',
-                  padding: '.5rem',
-                  display: 'grid',
-                  placeItems: 'center',
-                }}
-              >
-              <Image
-                style={{
-                  width: 'auto',
-                  height: '85%',
-                  borderRadius: '1rem',
-                  border: '3px solid #132f38',
+                  position: 'relative',
                   overflow: 'hidden',
+                  placeSelf: 'center'
                 }}
-                src={brew_at_the_zoo.src}
-                height={brew_at_the_zoo.height}
-                width={brew_at_the_zoo.width}
-                alt="Maddi and Brandon at brew at the zoo. Maddi is gorgeous. Brandon is not."
-              />
+              >
+                <Image 
+                css={css`
+                    position: absolute;
+                    animation: ${bounceX} 8s linear 0s infinite alternate, ${bounceY} 13.6s linear 0s infinite alternate;
+                  `}
+                src={collage.src} height={collage.height} width={collage.width} alt={''}/>
               </div>
+
           </div>
           <button onClick={() => setDest((dest + 1) % 5)}>CLICK ME YOU FOOL</button>
         </div>
