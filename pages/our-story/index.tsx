@@ -145,7 +145,7 @@ const OurStory = () => {
 
                 <Image
                   style={{
-                    width: '85%',
+                    width: '80%',
                     height: 'auto',
                     borderRadius: '1rem',
                     border: '3px solid #132f38'
@@ -170,7 +170,7 @@ const OurStory = () => {
               <Image
                 style={{
                   width: 'auto',
-                  height: '75%',
+                  height: '42%',
                   borderRadius: '1rem',
                   border: '3px solid #132f38'
                 }}
