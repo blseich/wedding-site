@@ -8,6 +8,8 @@ import big_heads_in_sun_landscape from '../../public/Maddi&Brandon_Couples-47.jp
 import big_heads_in_sun_portrait from '../../public/Maddi&Brandon_Couples-48.jpg';
 import our_story from '../../public/Our_Story.svg';
 import TitleLink from './TitleLink';
+import TitleSection from './TitleSection';
+import MeetSection from './MeetSection';
 import { Playfair_Display_SC, Raleway } from '@next/font/google';
 import collage from '../../public/collage.jpg';
 
@@ -80,7 +82,8 @@ const OurStory = () => {
       <div style={{
         maxWidth: '650px',
         display: 'flex',
-        alignItems: 'top',
+        marginRight: 'auto',
+        marginLeft: 'auto',
       }}>
         <div
           css={css`
@@ -130,27 +133,28 @@ const OurStory = () => {
             margin: 100vh 0;
           `}
         >
-          <Parallax
+          <TitleSection
             id="Meet"
-            onProgressChange={(progress) => setMeetProgress(progress)}
+            onProgress={setMeetProgress}
+          >
+            <MeetSection />
+         </TitleSection>
+         <TitleSection
+            id="Meet"
+            onProgress={setLiveProgress}
           >
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur quis justo nec ex efficitur pellentesque. Nam tempor rutrum nulla tempus lacinia. Cras lacinia, velit venenatis feugiat dictum, dolor erat congue nisi, sit amet maximus orci turpis a metus. Maecenas molestie arcu nec ligula rutrum, vitae suscipit erat congue. Nam nec viverra metus. Praesent congue leo et mi venenatis sagittis. Proin mollis pulvinar nibh sit amet hendrerit. Nam nec eros facilisis, suscipit lorem ac, dapibus odio. Duis tortor quam, pellentesque ut gravida eget, fringilla sit amet dui. Nam turpis elit, malesuada a aliquet ac, varius in orci. Integer facilisis finibus augue, ut maximus nibh malesuada venenatis. Sed sodales ultrices odio. Quisque nec libero id ante posuere ultrices. Fusce interdum euismod auctor. Quisque gravida consectetur tempor. Quisque dapibus auctor risus id fringilla.
-         </Parallax>
-         <Parallax
-            id="Live"
-            onProgressChange={(progress) => setLiveProgress(progress)}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur quis justo nec ex efficitur pellentesque. Nam tempor rutrum nulla tempus lacinia. Cras lacinia, velit venenatis feugiat dictum, dolor erat congue nisi, sit amet maximus orci turpis a metus. Maecenas molestie arcu nec ligula rutrum, vitae suscipit erat congue. Nam nec viverra metus. Praesent congue leo et mi venenatis sagittis. Proin mollis pulvinar nibh sit amet hendrerit. Nam nec eros facilisis, suscipit lorem ac, dapibus odio. Duis tortor quam, pellentesque ut gravida eget, fringilla sit amet dui. Nam turpis elit, malesuada a aliquet ac, varius in orci. Integer facilisis finibus augue, ut maximus nibh malesuada venenatis. Sed sodales ultrices odio. Quisque nec libero id ante posuere ultrices. Fusce interdum euismod auctor. Quisque gravida consectetur tempor. Quisque dapibus auctor risus id fringilla.
-         </Parallax>
-         <Parallax
+         </TitleSection>
+         <TitleSection
             id="Travel"
-            onProgressChange={(progress) => setTravelProgress(progress)}>
+            onProgress={setTravelProgress}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur quis justo nec ex efficitur pellentesque. Nam tempor rutrum nulla tempus lacinia. Cras lacinia, velit venenatis feugiat dictum, dolor erat congue nisi, sit amet maximus orci turpis a metus. Maecenas molestie arcu nec ligula rutrum, vitae suscipit erat congue. Nam nec viverra metus. Praesent congue leo et mi venenatis sagittis. Proin mollis pulvinar nibh sit amet hendrerit. Nam nec eros facilisis, suscipit lorem ac, dapibus odio. Duis tortor quam, pellentesque ut gravida eget, fringilla sit amet dui. Nam turpis elit, malesuada a aliquet ac, varius in orci. Integer facilisis finibus augue, ut maximus nibh malesuada venenatis. Sed sodales ultrices odio. Quisque nec libero id ante posuere ultrices. Fusce interdum euismod auctor. Quisque gravida consectetur tempor. Quisque dapibus auctor risus id fringilla.
-         </Parallax>
-         <Parallax
+         </TitleSection>
+         <TitleSection
             id="Proposal"
-            onProgressChange={(progress) => setProposalProgress(progress)}>
+            onProgress={setProposalProgress}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur quis justo nec ex efficitur pellentesque. Nam tempor rutrum nulla tempus lacinia. Cras lacinia, velit venenatis feugiat dictum, dolor erat congue nisi, sit amet maximus orci turpis a metus. Maecenas molestie arcu nec ligula rutrum, vitae suscipit erat congue. Nam nec viverra metus. Praesent congue leo et mi venenatis sagittis. Proin mollis pulvinar nibh sit amet hendrerit. Nam nec eros facilisis, suscipit lorem ac, dapibus odio. Duis tortor quam, pellentesque ut gravida eget, fringilla sit amet dui. Nam turpis elit, malesuada a aliquet ac, varius in orci. Integer facilisis finibus augue, ut maximus nibh malesuada venenatis. Sed sodales ultrices odio. Quisque nec libero id ante posuere ultrices. Fusce interdum euismod auctor. Quisque gravida consectetur tempor. Quisque dapibus auctor risus id fringilla.
-         </Parallax>
+         </TitleSection>
         </div>
 {/*         
                 <Image 
