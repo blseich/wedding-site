@@ -164,7 +164,12 @@ const OurStory = () => {
                 <Image 
                 css={css`
                     position: absolute;
-                    animation: ${bounceX} 8s linear 0s infinite alternate, ${bounceY} 13.6s linear 0s infinite alternate;
+                    @media (orientation: portrait) {
+                      animation: ${bounceX} 8s linear 0s infinite alternate, ${bounceY} 13.6s linear 0s infinite alternate;
+                    }
+                    @media (orientation: landscape) {
+                      animation: ${bounceX} 4s linear 0s infinite alternate, ${bounceY} 6.8s linear 0s infinite alternate;
+                    }
                   `}
                 src={collage.src} height={collage.height} width={collage.width} alt={''}/>
               </div>
