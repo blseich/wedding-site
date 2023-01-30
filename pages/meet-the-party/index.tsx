@@ -10,6 +10,23 @@ import the_ladies from '../../public/the_ladies.svg';
 import the_gentlemen from '../../public/the_gentlemen.svg';
 import the_little_ones from '../../public/the_little_ones.svg';
 import our_story from '../../public/Our_Story.svg';
+import { Playfair_Display_SC, Raleway, Herr_Von_Muellerhoff } from '@next/font/google';
+
+const headerFont = Playfair_Display_SC({
+  weight: "400",
+  subsets: ['latin'],
+});
+
+const subHeaderFont = Herr_Von_Muellerhoff({
+  weight: "400",
+  subsets: ['latin']
+});
+
+const textFont = Raleway({
+  weight: "400",
+  subsets: ['latin'],
+});
+
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -17,9 +34,15 @@ import "swiper/css/navigation";
 const swiperOverrides = css`
 .swiper-button-next {
   color: #fffaf3;
+  &:after {
+    font-size: 1rem;
+  }
 }
 .swiper-button-prev {
   color: #fffaf3;
+  &:after {
+    font-size: 1rem;
+  }
 }
 `;
 
@@ -82,7 +105,6 @@ return (
       <div css={css`
         width: 100%;
         height: 33%;
-        border-bottom: 2px solid #fffaf3;
         color: #13273f;
         display: flex;
         justify-content: center;
@@ -99,7 +121,40 @@ return (
               />
             </SlideTitleContainer>
           </SwiperSlide>
-          <SwiperSlide>Slide 2</SwiperSlide>
+          <SwiperSlide>
+            <div
+              css={css`
+                width: 100%;
+                height: 100%;
+                padding: 1rem;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 4rem 1rem 1fr;
+              `}
+            >
+              <div
+                css={css`
+                  color: #fffaf3;
+                  font-size: 1.5rem;
+                  grid-column-start: 2;
+                  font-family: ${headerFont.style.fontFamily};
+                  font-weight: ${headerFont.style.fontWeight};
+                  letter-spacing: .5rem;
+                `}
+              >Shelly<br />Ferguson</div>
+              <div
+                css={css`
+                  color: #fffaf3;
+                  font-size: 1rem;
+                  grid-column-start: 2;
+                  grid-row-start: 2;
+                  font-family: ${subHeaderFont.style.fontFamily};
+                  font-weight: ${subHeaderFont.style.fontWeight};
+                `}
+              >Bridesmaid</div>
+
+            </div>
+          </SwiperSlide>
           <SwiperSlide>Slide 3</SwiperSlide>
           <SwiperSlide>Slide 4</SwiperSlide>
           <SwiperSlide>Slide 5</SwiperSlide>
@@ -112,7 +167,6 @@ return (
       <div css={css`
         width: 100%;
         height: 33%;
-        border-bottom: 2px solid #fffaf3;
         display: flex;
         justify-content: center;
       `}>
