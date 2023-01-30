@@ -12,6 +12,15 @@ const bounceY = keyframes`
     from { top: 0; } to { top: calc(-${travel_collage.height}px + 100%); }
 `;
 
+const verticalScrollTop = keyframes`
+  from { transform: translateY(0%) }
+  to { transform: translateY(-100%) }
+`
+const verticalScrollBottom = keyframes `
+  from { transform: translateY(100%) }
+  to { transform: translateY(0%) }
+`
+
 const LiveSection = () => (
   <>
     <Image
@@ -44,21 +53,39 @@ const LiveSection = () => (
       <Image 
         css={css`
           position: absolute;
+          width: 100%;
+          height: auto;
           z-index: -1;
-          @media (orientation: portrait) {
-            animation: ${bounceX} 6s linear 0s infinite alternate, ${bounceY} 10.8s linear 0s infinite alternate;
-          }
-          @media (orientation: landscape) {
-            animation: ${bounceX} 4s linear 0s infinite alternate, ${bounceY} 6.8s linear 0s infinite alternate;
-          }
+          left: 0;
+          animation: ${verticalScrollTop} 6s linear infinite;
         `}
         src={travel_collage.src}
         width={travel_collage.width}
         height={travel_collage.height}
         alt={'several different photos of maddi and brandon traveling'}
-      />
+      /><Image 
+      css={css`
+        position: absolute;
+        width: 100%;
+        height: auto;
+        z-index: -1;
+        left: 0;
+        animation: ${verticalScrollBottom} 6s linear infinite;
+      `}
+      src={travel_collage.src}
+      width={travel_collage.width}
+      height={travel_collage.height}
+      alt={'several different photos of maddi and brandon traveling'}
+    />
     </div>
   </>
 );
 
 export default LiveSection;
+
+// @media (orientation: portrait) {
+//   animation: ${bounceX} 6s linear 0s infinite alternate, ${bounceY} 10.8s linear 0s infinite alternate;
+// }
+// @media (orientation: landscape) {
+//   animation: ${bounceX} 4s linear 0s infinite alternate, ${bounceY} 6.8s linear 0s infinite alternate;
+// }

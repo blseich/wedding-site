@@ -73,29 +73,40 @@ const OurStory = () => {
           </Title>
         </ParallaxBannerLayer>
       </ParallaxBanner>
-      <div style={{
-        maxWidth: '650px',
-        display: 'flex',
-        marginRight: 'auto',
-        marginLeft: 'auto',
-      }}>
+      <div  css={css`
+        max-width: 650px;
+        display: flex;
+        margin-right: auto;
+        margin-left: auto;
+        @media (max-width: 650px) {
+          flex-direction: column;
+        }
+      `}>
         <div
           css={css`
             display: flex;
             justify-content: space-around;
-            flex-direction: column;
             height: 75%;
             font-family: ${headerFont.style.fontFamily};
             font-weight: ${headerFont.style.fontWeight};
-            text-align: right;
             color: #fffaf3;
-            border-right: 1px solid #fffaf3;
-            padding: 0 1rem;
             flex-grow: 0;
             position: sticky;
-            top: 12.5%;
-            margin-top: 12.5%;
-            height: 75vh;
+            @media (max-width: 650px) {
+              top: 0%;
+              padding-top: 10%;
+              background: #13273f;
+              z-index: 2;
+            }
+            @media (min-width: 651px) {
+              padding: 0 1rem;
+              text-align: right;
+              border-right: 1px solid #fffaf3;
+              flex-direction: column;
+              top: 12.5%;
+              margin-top: 12.5%;
+              height: 75vh;
+            }
           `}
         >
           <TitleLink 

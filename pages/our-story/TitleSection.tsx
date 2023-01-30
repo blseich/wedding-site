@@ -14,6 +14,9 @@ const TitleSection = ({ id, onProgress, children }: {id: string, onProgress: (pr
       gap: 1rem;
       text-align: center;
       font-size: .875rem;
+      @media (max-width: 650px) {
+        padding-top: 20%;
+      }
     `}
   >
     {children}
