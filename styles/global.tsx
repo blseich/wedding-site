@@ -1,6 +1,9 @@
 import { css, Global } from '@emotion/react';
 import { base } from './colors';
 
+import "swiper/css/bundle";
+
+
 const globalStyles = (
   <Global 
     styles={css`

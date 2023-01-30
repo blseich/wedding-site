@@ -7,6 +7,7 @@ import { Playfair_Display_SC, Francois_One, Raleway } from '@next/font/google';
 import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
 import OurStory from './our-story';
+import MeetTheParty from './meet-the-party';
 
 const headerFont = Playfair_Display_SC({
   weight: "400",
@@ -123,6 +124,7 @@ export default function Home() {
         <Date>5<span>&#8901;</span>13<span>&#8901;</span>23</Date>
       </Main>
       <OurStory />
+      <MeetTheParty />
       <Main>
 
         </Main>
