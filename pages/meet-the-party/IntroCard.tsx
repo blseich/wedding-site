@@ -16,7 +16,7 @@ const textFont = Raleway({
   subsets: ['latin'],
 });
 
-const Wrapper = styled.div`
+const Wrapper = styled.div<{flip?: boolean}>`
   color: #fffaf3;
   width: 100%;
   height: 100%;
