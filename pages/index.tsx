@@ -6,8 +6,8 @@ import say_i_do from '../public/Say_I_Do.svg';
 import { Playfair_Display_SC, Francois_One, Raleway } from '@next/font/google';
 import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
-import OurStory from './our-story';
-import MeetTheParty from './meet-the-party';
+import OurStory from '../components/our-story';
+import MeetTheParty from '../components/meet-the-party';
 
 const headerFont = Playfair_Display_SC({
   weight: "400",
