@@ -126,20 +126,33 @@ return (
               css={css`
                 width: 100%;
                 height: 100%;
-                padding: 1rem;
+                margin: 0 2rem;
+                padding: .5rem;
                 display: grid;
-                grid-template-columns: 1fr 1fr;
-                grid-template-rows: 4rem 1rem 1fr;
+                grid-template-columns: 125px 1fr;
+                grid-template-rows: 1fr 4rem 1rem 1fr 4fr;
               `}
             >
+              <img
+                css={css`
+                  grid-column: 1;
+                  grid-row: 1 / span 4;
+                `}
+                height={125}
+                width={125}
+                src={"https://via.placeholder.com/125"}
+                alt={"placeholder"}
+              />
               <div
                 css={css`
                   color: #fffaf3;
                   font-size: 1.5rem;
                   grid-column-start: 2;
+                  grid-row-start: 2;
                   font-family: ${headerFont.style.fontFamily};
                   font-weight: ${headerFont.style.fontWeight};
                   letter-spacing: .5rem;
+                  padding-left: .5rem;
                 `}
               >Shelly<br />Ferguson</div>
               <div
@@ -147,12 +160,24 @@ return (
                   color: #fffaf3;
                   font-size: 1rem;
                   grid-column-start: 2;
-                  grid-row-start: 2;
+                  grid-row-start: 3;
+                  padding-left: .5rem;
                   font-family: ${subHeaderFont.style.fontFamily};
                   font-weight: ${subHeaderFont.style.fontWeight};
                 `}
               >Bridesmaid</div>
-
+              <div
+                css={css`
+                  color: #fffaf3;
+                  font-size: 1rem;
+                  grid-column: 1 / span 2;
+                  grid-row: 5;
+                  text-align: center;
+                  font-family: ${textFont.style.fontFamily};
+                  font-weight: ${textFont.style.fontWeight};
+                `}
+              >
+tincidunt lobortis feugiat vivamus at augue eget arcu dictum varius duis at consectetur lorem donec massa sapien faucibus et molestie ac feugiat</div>
             </div>
           </SwiperSlide>
           <SwiperSlide>Slide 3</SwiperSlide>
