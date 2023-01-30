@@ -12,6 +12,7 @@ import TitleSection from './TitleSection';
 import MeetSection from './MeetSection';
 import LiveSection from './LiveSection';
 import TravelSection from './TravelSection';
+import ProposalSection from './ProposalSection';
 import { Playfair_Display_SC, Raleway } from '@next/font/google';
 import collage from '../../public/collage.jpg';
 
@@ -158,7 +159,7 @@ const OurStory = () => {
          <TitleSection
             id="Proposal"
             onProgress={setProposalProgress}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur quis justo nec ex efficitur pellentesque. Nam tempor rutrum nulla tempus lacinia. Cras lacinia, velit venenatis feugiat dictum, dolor erat congue nisi, sit amet maximus orci turpis a metus. Maecenas molestie arcu nec ligula rutrum, vitae suscipit erat congue. Nam nec viverra metus. Praesent congue leo et mi venenatis sagittis. Proin mollis pulvinar nibh sit amet hendrerit. Nam nec eros facilisis, suscipit lorem ac, dapibus odio. Duis tortor quam, pellentesque ut gravida eget, fringilla sit amet dui. Nam turpis elit, malesuada a aliquet ac, varius in orci. Integer facilisis finibus augue, ut maximus nibh malesuada venenatis. Sed sodales ultrices odio. Quisque nec libero id ante posuere ultrices. Fusce interdum euismod auctor. Quisque gravida consectetur tempor. Quisque dapibus auctor risus id fringilla.
+            <ProposalSection />
          </TitleSection>
         </div>
 {/*         
