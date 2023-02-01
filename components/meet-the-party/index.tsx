@@ -20,6 +20,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { useState, useRef, useEffect } from 'react';
 import GentlemenDrawer from './gentlemen-drawer';
+import LittleOnesDrawer from './little-ones-drawer';
 
 const swiperOverrides = css`
 .swiper-button-next {
@@ -153,11 +154,13 @@ return (
         />
       </div>
       <GentlemenDrawer isOpen={open === 'gentlemen'} onClose={() => setOpen('')} />
-      <div css={css`
-        width: 100%;
-        height: 33%;
-        display: flex;
-        justify-content: center;
+      <div
+        onClick={() => {setOpen('littleOnes'); scrollRef.current?.scrollIntoView();}} 
+        css={css`
+          width: 100%;
+          height: 33%;
+          display: flex;
+          justify-content: center;
       `}>
           <Image
             css={titleStyles}
@@ -166,6 +169,7 @@ return (
             width={the_little_ones.width}
             alt={"the ladies text"}
           />
+          <LittleOnesDrawer isOpen={open === 'littleOnes'} onClose={() => setOpen('')} />
       </div>
     </div>
   </>

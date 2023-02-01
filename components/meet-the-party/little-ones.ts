@@ -25,7 +25,7 @@ const littleOnes = [
     "last": "Marvin",
     "role": "Ring Bear",
     "img": "https://via.placeholder.com/125",
-    "intro": "Brandon Insisted. Maddi Objected. The logistic would've been a nightmare anyway. Included in absentia."
+    "intro": "Brandon Insisted. Maddi Objected. The logistic would've been a nightmare anyway.\n\nIncluded in absentia."
   }
 ];
 

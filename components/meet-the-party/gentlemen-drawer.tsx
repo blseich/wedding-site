@@ -23,21 +23,20 @@ const textFont = Raleway({
 const Name = styled.div`
   color: #13273f;
   font-size: 1.5rem;
-  grid-column-start: text;
-  grid-row-start: 2;
   font-family: ${headerFont.style.fontFamily};
   font-weight: ${headerFont.style.fontWeight};
   letter-spacing: .25em;
   padding: 0 .5rem;
+  text-align: right;
 `;
 
 const Role = styled.div`
   font-size: 1rem;
-  grid-column-start: text;
-  grid-row-start: 3;
   padding: 0 .5rem;
+  color: #13273f;
   font-family: ${subHeaderFont.style.fontFamily};
   font-weight: ${subHeaderFont.style.fontWeight};
+  text-align: right;
 `;
 
 const activeIcon = css`
