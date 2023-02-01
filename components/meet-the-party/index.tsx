@@ -10,6 +10,7 @@ import the_ladies from '../../public/the_ladies.svg';
 import the_gentlemen from '../../public/the_gentlemen.svg';
 import the_little_ones from '../../public/the_little_ones.svg';
 import our_story from '../../public/Our_Story.svg';
+import Drawer from './drawer';
 import IntroCard from './IntroCard';
 import bridesmaids from './bridesmaids';
 import groomsmen from './groomsmen';
@@ -18,42 +19,6 @@ import littleOnes from './little-ones';
 import "swiper/css";
 import "swiper/css/navigation";
 import { useState, useRef, useEffect } from 'react';
-import { Playfair_Display_SC, Raleway, Mr_Dafoe } from '@next/font/google';
-
-const headerFont = Playfair_Display_SC({
-  weight: "400",
-  subsets: ['latin'],
-});
-
-const subHeaderFont = Mr_Dafoe({
-  weight: "400",
-  subsets: ['latin']
-});
-
-const textFont = Raleway({
-  weight: "400",
-  subsets: ['latin'],
-});
-
-const Name = styled.div`
-  color: #13273f;
-  font-size: 1.5rem;
-  grid-column-start: text;
-  grid-row-start: 2;
-  font-family: ${headerFont.style.fontFamily};
-  font-weight: ${headerFont.style.fontWeight};
-  letter-spacing: .25em;
-  padding: 0 .5rem;
-`;
-
-const Role = styled.div`
-  font-size: 1rem;
-  grid-column-start: text;
-  grid-row-start: 3;
-  padding: 0 .5rem;
-  font-family: ${subHeaderFont.style.fontFamily};
-  font-weight: ${subHeaderFont.style.fontWeight};
-`;
 
 const swiperOverrides = css`
 .swiper-button-next {
@@ -167,64 +132,8 @@ return (
             height={the_ladies.height}
             width={the_ladies.width}
             alt={"the ladies text"}
-
           />
-          <div
-            className={open ? 'open' : ''}
-            css={css`
-              height: 100%;
-              width: 100%;
-              z-index: 1;
-              position: absolute;
-              transform: translateX(100%);
-              background: #fffaf3;
-              transition: transform .4s ease-in;
-              display: flex;
-              align-items: center;
-              &.open {
-                transform: translateX(0);
-              }
-            `}
-          >
-            <button
-            css={css`
-              height: 150px;
-              width: 2rem;
-            `}
-            onClick={(e) => { setOpen(false); e.stopPropagation();}}>
-              <div css={css`
-                transform-origin: 50% 50%;
-                transform: rotate(270deg);
-              `}>Close</div>
-            </button>
-            
-            <div css={css`height: 100%; flex-grow: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 1rem; padding: 0 .5rem;`}>
-              <img css={css`align-self: flex-end;`} src={'https://via.placeholder.com/175'} />
-              <div css={css`
-                font-style: ${textFont.style.fontFamily}
-                color: #13273f;
-                text-align: center;
-              `}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam felis eros, posuere in lectus et, dignissim dapibus massa. Aliquam erat volutpat. Sed quis dictum ligula, nec volutpat leo. Curabitur luctus lectus sit amet felis dapibus aliquam. Suspendisse eu aliquet elit. Nulla eu velit mi. Vivamus interdum euismod rhoncus. Nam finibus imperdiet nunc ut laoreet. Morbi et bibendum leo, vitae ornare neque. Morbi justo ante, commodo sit amet aliquet quis, eleifend ut lorem. Vestibulum tristique suscipit leo ut blandit. Duis tempor, ex id sodales viverra, odio nisl aliquam metus, vitae interdum sem ante at magna. Integer ut sem eget purus molestie pulvinar.
-
-Pellentesque a posuere erat. Aliquam vitae dapibus mi. Mauris ac metus et orci consequat dignissim ut sit amet ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aenean dignissim imperdiet purus, a faucibus nisi laoreet vitae. Aliquam gravida finibus est vitae gravida. Curabitur augue.
-              </div>
-              <div css={css`align-self: flex-start;`}>
-                <Name>Shelly<br />Ferguson</Name>
-                <Role>Matron of Honor - Sister of the Bride</Role>
-              </div>
-            </div>
-            <div css={css`width: 75px; height: 75%; border-left: 2px solid #13273f; display: flex; flex-direction: column; justify-content: space-around; padding: 0 .5rem; & img { border-radius: 100% }`}>
-              <img src={'https://via.placeholder.com/50'} />
-              <img src={'https://via.placeholder.com/50'} />
-              <img src={'https://via.placeholder.com/50'} />
-              <img src={'https://via.placeholder.com/50'} />
-              <img src={'https://via.placeholder.com/50'} />
-              <img src={'https://via.placeholder.com/50'} />
-              <img src={'https://via.placeholder.com/50'} />
-            </div>
-          </div>
-        
+        <Drawer isOpen={open} onClose={() => setOpen(false)} />
       </div>
       <div css={css`
         width: 100%;
