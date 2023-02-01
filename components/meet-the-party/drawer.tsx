@@ -54,7 +54,7 @@ const Controls = () => {
   const [activeIndex, setActiveIndex] = useState(swiper.activeIndex);
 
   useEffect(() => {
-    const callback = (newState) => {
+    const callback = (newState: {activeIndex: number}) => {
       setActiveIndex(newState.activeIndex);
     };
 
