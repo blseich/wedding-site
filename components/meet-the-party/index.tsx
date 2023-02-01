@@ -10,7 +10,7 @@ import the_ladies from '../../public/the_ladies.svg';
 import the_gentlemen from '../../public/the_gentlemen.svg';
 import the_little_ones from '../../public/the_little_ones.svg';
 import our_story from '../../public/Our_Story.svg';
-import Drawer from './drawer';
+import LadiesDrawer from './ladies-drawer';
 import IntroCard from './IntroCard';
 import bridesmaids from './bridesmaids';
 import groomsmen from './groomsmen';
@@ -19,6 +19,7 @@ import littleOnes from './little-ones';
 import "swiper/css";
 import "swiper/css/navigation";
 import { useState, useRef, useEffect } from 'react';
+import GentlemenDrawer from './gentlemen-drawer';
 
 const swiperOverrides = css`
 .swiper-button-next {
@@ -77,7 +78,7 @@ const slideFromLeft = keyframes`
   from { left: 100% } to { left: 10% }
 `;
 
-const [open, setOpen] = useState(false);
+const [open, setOpen] = useState('');
 const scrollRef = useRef<HTMLDivElement>(null);
 
 useEffect(() => {
@@ -118,7 +119,7 @@ return (
       overflow: hidden;
     `}>
       <div
-        onClick={() => {setOpen(true); scrollRef.current?.scrollIntoView(); }}
+        onClick={() => {setOpen('ladies'); scrollRef.current?.scrollIntoView(); }}
         css={css`
           width: 100%;
           height: 33%;
@@ -133,9 +134,11 @@ return (
             width={the_ladies.width}
             alt={"the ladies text"}
           />
-        <Drawer isOpen={open} onClose={() => setOpen(false)} />
+        <LadiesDrawer isOpen={open === 'ladies'} onClose={() => setOpen('')} />
       </div>
-      <div css={css`
+      <div
+        onClick={() => {setOpen('gentlemen'); scrollRef.current?.scrollIntoView(); }}
+        css={css`
         width: 100%;
         height: 33%;
         display: flex;
@@ -149,6 +152,7 @@ return (
           alt={"the ladies text"}
         />
       </div>
+      <GentlemenDrawer isOpen={open === 'gentlemen'} onClose={() => setOpen('')} />
       <div css={css`
         width: 100%;
         height: 33%;

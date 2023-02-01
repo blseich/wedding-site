@@ -72,7 +72,7 @@ const Controls = () => {
   )
 }
 
-const Drawer = ({isOpen, onClose}: {isOpen: boolean, onClose: () => void}) => {
+const LadiesDrawer = ({isOpen, onClose}: {isOpen: boolean, onClose: () => void}) => {
   return  (         
     <div
       className={isOpen ? 'open' : ''}
@@ -80,6 +80,7 @@ const Drawer = ({isOpen, onClose}: {isOpen: boolean, onClose: () => void}) => {
         height: 100%;
         width: 100%;
         z-index: 1;
+        top: 0;
         position: absolute;
         transform: translateX(100%);
         background: #fffaf3;
@@ -95,14 +96,20 @@ const Drawer = ({isOpen, onClose}: {isOpen: boolean, onClose: () => void}) => {
         css={css`
           height: 150px;
           width: 2rem;
+          background: #13273f;
+          color: #fffaf3;
+          border: none;
+          border-radius: 0 1rem 1rem 0;
+          font-family: ${textFont.style.fontFamily};
         `}
         onClick={(e) => { onClose(); e.stopPropagation();}}
       >
         <div css={css`
-          transform-origin: 50% 50%;
+          transform-origin: 75% 75%;
           transform: rotate(270deg);
+          text-align: center;
         `}>
-          Close
+          CLOSE
         </div>
       </button>
       <Swiper direction="vertical" css={css`height: 100%; flex-grow: 1; display: flex; align-items: center; & .swiper-slide {flex-grow: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 1rem; padding: 0 .5rem;}`}>
@@ -129,4 +136,4 @@ const Drawer = ({isOpen, onClose}: {isOpen: boolean, onClose: () => void}) => {
   </div>);
 }
 
-export default Drawer;
+export default LadiesDrawer;
