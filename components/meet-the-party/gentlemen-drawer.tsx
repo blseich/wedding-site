@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
-import { Playfair_Display_SC, Raleway, Mr_Dafoe } from '@next/font/google';
+import { Playfair_Display_SC, Raleway, Great_Vibes } from '@next/font/google';
 import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
 import groomsmen from './groomsmen';
 import { useEffect, useState } from 'react';
@@ -10,7 +10,7 @@ const headerFont = Playfair_Display_SC({
   subsets: ['latin'],
 });
 
-const subHeaderFont = Mr_Dafoe({
+const subHeaderFont = Great_Vibes({
   weight: "400",
   subsets: ['latin']
 });
