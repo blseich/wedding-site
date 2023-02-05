@@ -6,6 +6,7 @@ import couple_and_dog_portrait from '../../public/Maddi&Brandon_Couples-5.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLocationDot, faStopwatch, faPlane, faCircleInfo, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react';
+import Venue from './Venue';
 
 const headerFont = Playfair_Display_SC({
   weight: "400",
@@ -160,7 +161,9 @@ const TheDetails = () => {
             </FlipCardLink>
           </div>
           <div css={[flipCardFace, flipCardBack]}>
-            <FontAwesomeIcon icon={faXmark} onClick={() => setFlipped(false)} />
+            <FontAwesomeIcon icon={faXmark} onClick={() => setFlipped(false)} css={css`position: absolute; top: .5rem; right: .5rem; height: 2rem;`}/>
+            <div css={css`height: 4rem;`}>Venue</div>
+            <Venue />
           </div>
         </div>
       </div>
