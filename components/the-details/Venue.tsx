@@ -52,10 +52,10 @@ const Venue = () => {
           width="300"
           height="250"
           style={{border: '0'}}
-          src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCWsqBnifJ0ykpT-eH6RC-uQtyGP6IWg4E
-            &q=strongwater+food+and+spirits,columbus+oh" allowfullscreen>
+          src={`https://www.google.com/maps/embed/v1/place?key=${process.env.NEXT_PUBLIC_MAPS_API_KEY}
+            &q=strongwater+food+and+spirits,columbus+oh`} allowfullscreen>
         </iframe>
-        {/* <Wrapper apiKey='AIzaSyCWsqBnifJ0ykpT-eH6RC-uQtyGP6IWg4E' render={render}>
+        {/* <Wrapper apiKey='' render={render}>
           <MyMapComponent center={center} zoom={zoom}/>
         </Wrapper> */}
       </div>
