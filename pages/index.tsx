@@ -8,6 +8,7 @@ import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
 import OurStory from '../components/our-story';
 import MeetTheParty from '../components/meet-the-party';
+import TheDetails from '../components/the-details';
 
 const headerFont = Playfair_Display_SC({
   weight: "400",
@@ -125,6 +126,7 @@ export default function Home() {
       </Main>
       <OurStory />
       <MeetTheParty />
+      <TheDetails />
       <Main>
 
         </Main>
