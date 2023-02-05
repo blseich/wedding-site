@@ -62,7 +62,7 @@ const Venue = () => {
       <div>
         Location - We will be saying I do and holding our reception both at Strongwater Food & Spirits.
         Parking - There is a large lot that will be reserved for wedding guests. Overnight parking is allowed.
-        Weather - If it's dry, our ceremony will be held outside in Strongwater's courtyard area. Rain will likely bring us inside. Please plan attire accordingly.
+        Weather - If it&apo;s dry, our ceremony will be held outside in Strongwater&apo;s courtyard area. Rain will likely bring us inside. Please plan attire accordingly.
       </div>
     </div>
   )
