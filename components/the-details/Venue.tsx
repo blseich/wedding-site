@@ -13,10 +13,10 @@ const MyMapComponent = ({
   center: google.maps.LatLngLiteral;
   zoom: number;
 }) => {
-  const ref = useRef();
+  const ref = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    const map = new window.google.maps.Map(ref.current, {
+    const map = new window.google.maps.Map(ref.current as HTMLDivElement, {
       center,
       zoom,
     });
@@ -53,7 +53,7 @@ const Venue = () => {
           height="250"
           style={{border: '0'}}
           src={`https://www.google.com/maps/embed/v1/place?key=${process.env.NEXT_PUBLIC_MAPS_API_KEY}
-            &q=strongwater+food+and+spirits,columbus+oh`} allowfullscreen>
+            &q=strongwater+food+and+spirits,columbus+oh`} allowFullScreen>
         </iframe>
         {/* <Wrapper apiKey='' render={render}>
           <MyMapComponent center={center} zoom={zoom}/>
