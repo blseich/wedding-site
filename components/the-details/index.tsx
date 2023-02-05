@@ -162,7 +162,6 @@ const TheDetails = () => {
           </div>
           <div css={[flipCardFace, flipCardBack]}>
             <FontAwesomeIcon icon={faXmark} onClick={() => setFlipped(false)} css={css`position: absolute; top: .5rem; right: .5rem; height: 2rem;`}/>
-            <div css={css`height: 4rem;`}>Venue</div>
             <Venue />
           </div>
         </div>
