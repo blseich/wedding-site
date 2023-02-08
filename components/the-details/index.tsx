@@ -7,6 +7,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLocationDot, faStopwatch, faPlane, faCircleInfo, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react';
 import Venue from './Venue';
+import Schedule from './Schedule';
+import Travel from './Travel';
 
 const headerFont = Playfair_Display_SC({
   weight: "400",
@@ -124,6 +126,7 @@ const horzSpacer = css`
 
 const TheDetails = () => {
   const [flipped, setFlipped] = useState(false);
+  const [activePanel, setActivePanel] = useState(<></>);
   return (
     <>
       <ParallaxBanner style={{height: '100%', width: '100%'}}>
@@ -139,18 +142,18 @@ const TheDetails = () => {
       <div css={flipCard} className={flipped ? 'flipped' : undefined}>
         <div css={flipCardInner} className="flip-card-inner">
           <div css={[flipCardFront, flipCardFace]}>
-            <FlipCardLink onClick={() => setFlipped(true)} css={css`grid-column: 1; grid-row: 1;`}>
+            <FlipCardLink onClick={() => {setFlipped(true); setActivePanel(<Venue />);}} css={css`grid-column: 1; grid-row: 1;`}>
               <FontAwesomeIcon icon={faLocationDot} style={{height: '4rem'}}/>
               <h1>Venue</h1>
             </FlipCardLink>
             <div css={[vertSpacer, css`grid-column: 2; grid-row: 1;`]} />
-            <FlipCardLink onClick={() => setFlipped(true)} css={css`grid-column: 3; grid-row: 1;`}>
+            <FlipCardLink onClick={() => {setFlipped(true); setActivePanel(<Schedule />)}} css={css`grid-column: 3; grid-row: 1;`}>
               <FontAwesomeIcon icon={faStopwatch} style={{height: '4rem'}}/>
               <h1>Schedule</h1>
             </FlipCardLink>
             <div css={[horzSpacer, css`grid-column: 1; grid-row: 2;`]} />
             <div css={[horzSpacer, css`grid-column: 3; grid-row: 2;`]} />
-            <FlipCardLink onClick={() => setFlipped(true)} css={css`grid-column: 1; grid-row: 3;`}>
+            <FlipCardLink onClick={() => {setFlipped(true); setActivePanel(<Travel />)}} css={css`grid-column: 1; grid-row: 3;`}>
               <FontAwesomeIcon icon={faPlane} style={{height: '4rem'}}/>
               <h1>Travel</h1>
             </FlipCardLink>
@@ -162,7 +165,7 @@ const TheDetails = () => {
           </div>
           <div css={[flipCardFace, flipCardBack]}>
             <FontAwesomeIcon icon={faXmark} onClick={() => setFlipped(false)} css={css`position: absolute; top: .5rem; right: .5rem; height: 2rem;`}/>
-            <Venue />
+            {activePanel}
           </div>
         </div>
       </div>
