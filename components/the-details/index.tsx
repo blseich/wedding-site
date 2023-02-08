@@ -5,7 +5,7 @@ import { Playfair_Display_SC, Great_Vibes } from '@next/font/google';
 import couple_and_dog_portrait from '../../public/Maddi&Brandon_Couples-5.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLocationDot, faStopwatch, faPlane, faCircleInfo, faXmark } from '@fortawesome/free-solid-svg-icons';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import Venue from './Venue';
 import Schedule from './Schedule';
 import Travel from './Travel';
@@ -126,7 +126,24 @@ const horzSpacer = css`
 
 const TheDetails = () => {
   const [flipped, setFlipped] = useState(false);
-  const [activePanel, setActivePanel] = useState(<></>);
+  const [activePanel, setActivePanel] = useState<JSX.Element | null>(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if(activePanel === null) {
+      document.body.style.overflow = 'unset'
+    } else {
+      document.body.style.overflow = 'hidden'
+    }
+  }, [activePanel])
+  
+
+  const activatePanel = (panel: JSX.Element): void => {
+    setFlipped(true);
+    scrollRef.current?.scrollIntoView();
+    setActivePanel(panel);
+  }
+
   return (
     <>
       <ParallaxBanner style={{height: '100%', width: '100%'}}>
@@ -139,21 +156,21 @@ const TheDetails = () => {
         </Title>
       </ParallaxBannerLayer>
       </ParallaxBanner>
-      <div css={flipCard} className={flipped ? 'flipped' : undefined}>
+      <div css={flipCard} ref={scrollRef} className={flipped ? 'flipped' : undefined}>
         <div css={flipCardInner} className="flip-card-inner">
           <div css={[flipCardFront, flipCardFace]}>
-            <FlipCardLink onClick={() => {setFlipped(true); setActivePanel(<Venue />);}} css={css`grid-column: 1; grid-row: 1;`}>
+            <FlipCardLink onClick={() => activatePanel(<Venue />)} css={css`grid-column: 1; grid-row: 1;`}>
               <FontAwesomeIcon icon={faLocationDot} style={{height: '4rem'}}/>
               <h1>Venue</h1>
             </FlipCardLink>
             <div css={[vertSpacer, css`grid-column: 2; grid-row: 1;`]} />
-            <FlipCardLink onClick={() => {setFlipped(true); setActivePanel(<Schedule />)}} css={css`grid-column: 3; grid-row: 1;`}>
+            <FlipCardLink onClick={() => activatePanel(<Schedule />)} css={css`grid-column: 3; grid-row: 1;`}>
               <FontAwesomeIcon icon={faStopwatch} style={{height: '4rem'}}/>
               <h1>Schedule</h1>
             </FlipCardLink>
             <div css={[horzSpacer, css`grid-column: 1; grid-row: 2;`]} />
             <div css={[horzSpacer, css`grid-column: 3; grid-row: 2;`]} />
-            <FlipCardLink onClick={() => {setFlipped(true); setActivePanel(<Travel />)}} css={css`grid-column: 1; grid-row: 3;`}>
+            <FlipCardLink onClick={() => activatePanel(<Travel />)} css={css`grid-column: 1; grid-row: 3;`}>
               <FontAwesomeIcon icon={faPlane} style={{height: '4rem'}}/>
               <h1>Travel</h1>
             </FlipCardLink>
@@ -164,7 +181,7 @@ const TheDetails = () => {
             </FlipCardLink>
           </div>
           <div css={[flipCardFace, flipCardBack]}>
-            <FontAwesomeIcon icon={faXmark} onClick={() => setFlipped(false)} css={css`position: absolute; top: .5rem; right: .5rem; height: 2rem;`}/>
+            <FontAwesomeIcon icon={faXmark} onClick={() => {setFlipped(false); setActivePanel(null);}} css={css`position: absolute; top: .5rem; right: .5rem; height: 2rem;`}/>
             {activePanel}
           </div>
         </div>

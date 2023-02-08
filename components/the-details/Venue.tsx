@@ -25,23 +25,27 @@ const textFont = Raleway({
 const Venue = () => {
 
   return (
-    <div css={css`display: flex; flex-direction: column; justify-content: center;`}>
+    <div css={css`display: flex; flex-direction: column; justify-content: center; height: 100%;`}>
       <div css={css`font-size: 3rem; font-family: ${headerFont.style.fontFamily}; letter-spacing: .5rem;`}>Venue</div>
-      <div>Ceremony and Reception to be held at:</div>
-      <a
-        href="https://events.strongwatercolumbus.com/"
-      >
-        <Image 
-          src={strongwater_logo.src}
-          height={100}
-          width={strongwater_logo.width}
-          alt="Strongwater food and spirit's logo"
-          css={css`width: auto; margin: .5rem 0;`}
-        />
-      </a>
-      <a href="http://maps.google.com/?q=401 W Town St. Columbus, OH">401 W Town St. Columbus, OH</a>
-      <div>Parking available in gravel lot across the street from the venue. Overnight parking permitted.</div>
-      <div>Weather permitting, the ceremony will be held in an outdoor courtyard. Please plan attire accordingly</div>
+      <div css={css`display: flex; flex-direction: column; justify-content: space-around; flex-grow: 1;`}>
+        <div>Ceremony and Reception to be held at:</div>
+        <div css={css`display: flex; flex-direction: column;`}>
+          <a
+            href="https://events.strongwatercolumbus.com/"
+          >
+            <Image 
+              src={strongwater_logo.src}
+              height={100}
+              width={strongwater_logo.width}
+              alt="Strongwater food and spirit's logo"
+              css={css`width: auto; margin: .5rem 0;`}
+            />
+          </a>
+          <a href="http://maps.google.com/?q=401 W Town St. Columbus, OH">401 W Town St. Columbus, OH</a>
+        </div>
+        <div>Parking available in gravel lot across the street from the venue. Overnight parking permitted.</div>
+        <div>Weather permitting, the ceremony will be held in an outdoor courtyard. Please plan attire accordingly</div>
+      </div>
     </div>
   )
 }
