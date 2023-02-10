@@ -25,11 +25,11 @@ const textFont = Raleway({
 const Venue = () => {
 
   return (
-    <div css={css`display: flex; flex-direction: column; justify-content: center; height: 100%;`}>
+    <div css={css`display: flex; flex-direction: column; justify-content: center; height: 100%; padding: 0 1rem;`}>
       <div css={css`font-size: 3rem; font-family: ${headerFont.style.fontFamily}; letter-spacing: .5rem;`}>Venue</div>
-      <div css={css`display: flex; flex-direction: column; justify-content: space-around; flex-grow: 1;`}>
-        <div>Ceremony and Reception to be held at:</div>
+      <div css={css`display: flex; flex-direction: column; align-items: center; justify-content: space-around; flex-grow: 1; text-align: center;`}>
         <div css={css`display: flex; flex-direction: column;`}>
+          <div>Ceremony and Reception to be held at:</div>
           <a
             href="https://events.strongwatercolumbus.com/"
           >
@@ -37,14 +37,22 @@ const Venue = () => {
               src={strongwater_logo.src}
               height={100}
               width={strongwater_logo.width}
-              alt="Strongwater food and spirit's logo"
+              alt="Strongwater food and spirits logo"
               css={css`width: auto; margin: .5rem 0;`}
             />
           </a>
-          <a href="http://maps.google.com/?q=401 W Town St. Columbus, OH">401 W Town St. Columbus, OH</a>
         </div>
-        <div>Parking available in gravel lot across the street from the venue. Overnight parking permitted.</div>
-        <div>Weather permitting, the ceremony will be held in an outdoor courtyard. Please plan attire accordingly</div>
+        <iframe
+          width="90%"
+          height="275"
+          css={css`border: 2px solid #13273f; padding: 2px;`}
+          loading="lazy"
+          allowFullScreen
+          referrerPolicy="no-referrer-when-downgrade"
+          src={`https://www.google.com/maps/embed/v1/place?key=${process.env.NEXT_PUBLIC_MAPS_API_KEY}
+            &q=strongwater+food+and+spirits,columbus+oh`}>
+        </iframe>
+        <div>Parking available in gravel lot across the street from the venue. Overnight parking permitted until 12pm the next day.</div>
       </div>
     </div>
   )

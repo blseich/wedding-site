@@ -9,6 +9,7 @@ import { useState, useRef, useEffect } from 'react';
 import Venue from './Venue';
 import Schedule from './Schedule';
 import Travel from './Travel';
+import Info from './Info';
 
 const headerFont = Playfair_Display_SC({
   weight: "400",
@@ -70,7 +71,6 @@ const flipCardInner = css`
 position: relative;
 width: 100%;
 height: 100%;
-text-align: center;
 transition: transform 0.8s;
 transform-style: preserve-3d;
 `;
@@ -175,7 +175,7 @@ const TheDetails = () => {
               <h1>Travel</h1>
             </FlipCardLink>
             <div css={[vertSpacer, css`grid-column: 2; grid-row: 3;`]} />
-            <FlipCardLink onClick={() => setFlipped(true)} css={css`grid-column: 3; grid-row: 3;`}>
+            <FlipCardLink onClick={() => activatePanel(<Info />)}  css={css`grid-column: 3; grid-row: 3;`}>
               <FontAwesomeIcon icon={faCircleInfo} style={{height: '4rem'}}/>
               <h1>Info</h1>
             </FlipCardLink>
