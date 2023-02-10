@@ -61,27 +61,13 @@ const Title = styled.div`
   display: grid;
   grid-template-rows: 1fr;
   place-items: center;
-  height: 100vh;
-  width: 100vw;
-`
-
-
-const SlideTitleContainer = styled.div`
-  width: 100%;
   height: 100%;
-  display: flex;
-  justify-contet: center;
-  align-items: center;
+  width: 100%;
+  font-family: ${subHeaderFont.style.fontFamily};
+  font-size: 3rem;
+  color: #fffaf3;
+  text-shadow: 1px 1px 2px black;
 `
-
-const titleStyles = css`
-  height: 33%;
-  max-width: calc(100% - 4rem);
-`
-
-const slideFromLeft = keyframes`
-  from { left: 100% } to { left: 10% }
-`;
 
 const [open, setOpen] = useState('');
 const scrollRef = useRef<HTMLDivElement>(null);
@@ -102,13 +88,7 @@ return (
     </ParallaxBannerLayer>
     <ParallaxBannerLayer>
       <Title>
-      <Image 
-          width={256}
-          height={40}
-          style={{width: '16rem', filter: 'drop-shadow(1px 1px 2px black)'}}
-          src={our_story.src}
-          alt={'say i do'}
-        />
+        The Crew
       </Title>
     </ParallaxBannerLayer>
     </ParallaxBanner>

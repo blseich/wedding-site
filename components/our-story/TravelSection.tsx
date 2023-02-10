@@ -1,16 +1,13 @@
 import Image from 'next/image';
-import sharing_adventures from '../../public/sharing_adventures.svg';
 import travel_collage from '../../public/travel_collage.jpg';
 
 import { css, keyframes } from '@emotion/react';
+import { Great_Vibes } from '@next/font/google';
 
-const bounceX = keyframes`
-    from { left: 0; } to { left: calc(-${travel_collage.width}px + 100%); }
-`;
-
-const bounceY = keyframes`
-    from { top: 0; } to { top: calc(-${travel_collage.height}px + 100%); }
-`;
+const subHeaderFont = Great_Vibes({
+  weight: "400",
+  subsets: ['latin'],
+});
 
 const verticalScrollTop = keyframes`
   from { transform: translateY(0%) }
@@ -23,16 +20,9 @@ const verticalScrollBottom = keyframes `
 
 const LiveSection = () => (
   <>
-    <Image
-      css={css`
-        width: 70%;
-        height: auto;
-      `}
-      src={sharing_adventures.src}
-      height={sharing_adventures.height}
-      width={sharing_adventures.width}
-      alt={'how we became us'}
-    />
+    <div css={css`color: #fffaf3; font-size: 2.5rem; font-family: ${subHeaderFont.style.fontFamily}; text-align: left;`}>
+      Sharing<br /><span css={css`margin-left: 20%;`}>Adventures</span>
+    </div>
     <div>
       Brandon and Maddi have always enjoyed getting away and it all started on labor day in 2019. The pair packed up and drove to Washington DC for a weekend away. They&apos;ve traveled every year since on Labor Day to commemorate that first trip. It&apos;s a tradition they look forward to continuing even after they have a new anniversary to celebrate.
     </div>

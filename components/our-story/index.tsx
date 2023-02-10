@@ -1,9 +1,9 @@
 /*** @jsx, jsx */
-import React, { useState } from 'react';
-import { Parallax, ParallaxBanner, ParallaxBannerLayer } from 'react-scroll-parallax';
+import { useState } from 'react';
+import { ParallaxBanner, ParallaxBannerLayer } from 'react-scroll-parallax';
 import Image from 'next/image';
 import styled from '@emotion/styled';
-import { css, keyframes } from '@emotion/react';
+import { css } from '@emotion/react';
 import big_heads_in_sun_landscape from '../../public/Maddi&Brandon_Couples-47.jpg';
 import big_heads_in_sun_portrait from '../../public/Maddi&Brandon_Couples-48.jpg';
 import our_story from '../../public/Our_Story.svg';
@@ -13,11 +13,15 @@ import MeetSection from './MeetSection';
 import LiveSection from './LiveSection';
 import TravelSection from './TravelSection';
 import ProposalSection from './ProposalSection';
-import { Playfair_Display_SC, Raleway } from '@next/font/google';
-import collage from '../../public/collage.jpg';
+import { Playfair_Display_SC, Great_Vibes, Raleway } from '@next/font/google';
 
 
 const headerFont = Playfair_Display_SC({
+  weight: "400",
+  subsets: ['latin'],
+});
+
+const subHeaderFont = Great_Vibes({
   weight: "400",
   subsets: ['latin'],
 });
@@ -43,11 +47,15 @@ const OurStoryBackground = styled.div`
 `
 
 const Title = styled.div`
-  display: grid;
-  grid-template-rows: 1fr;
-  place-items: center;
-  height: 100vh;
-  width: 100vw;
+display: grid;
+grid-template-rows: 1fr;
+place-items: center;
+height: 100%;
+width: 100%;
+font-family: ${subHeaderFont.style.fontFamily};
+font-size: 3rem;
+color: #fffaf3;
+text-shadow: 1px 1px 2px black;
 `
 
 const OurStory = () => {
@@ -64,13 +72,7 @@ const OurStory = () => {
         </ParallaxBannerLayer>
         <ParallaxBannerLayer>
           <Title>
-          <Image 
-              width={256}
-              height={40}
-              style={{width: '16rem', filter: 'drop-shadow(1px 1px 2px black)'}}
-              src={our_story.src}
-              alt={'say i do'}
-            />
+            The Story
           </Title>
         </ParallaxBannerLayer>
       </ParallaxBanner>

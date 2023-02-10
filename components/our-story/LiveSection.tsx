@@ -1,9 +1,14 @@
 import Image from 'next/image';
-import lifes_better_when_were_together from '../../public/lifes_better_when_were_together.svg';
 import fitz from '../../public/fitzgerald_halloween.jpg';
 import bella from '../../public/bella.jpg';
 
 import { css } from '@emotion/react';
+import { Great_Vibes } from '@next/font/google';
+
+const subHeaderFont = Great_Vibes({
+  weight: "400",
+  subsets: ['latin'],
+});
 
 const petPicStyles = css`
   flex-grow: 1;
@@ -17,16 +22,9 @@ const petPicStyles = css`
 
 const LiveSection = () => (
   <>
-    <Image
-      css={css`
-        width: 100%;
-        height: auto;
-      `}
-      src={lifes_better_when_were_together.src}
-      height={lifes_better_when_were_together.height}
-      width={lifes_better_when_were_together.width}
-      alt={'how we became us'}
-    />
+    <div css={css`color: #fffaf3; font-size: 2.5rem; font-family: ${subHeaderFont.style.fontFamily}; text-align: left;`}>
+      Home Is<br /><span css={css`margin-left: 20%;`}>Where You Are</span>
+    </div>
     <div>
       Brandon and Maddi currently live in Hilliard, Ohio with the best worst decision ever made -- our 110lb Rottwieler, Fitzgerald -- and the came-with-her-but-is-slowly-growing-on-him furry ball of teeth and claws, Isabella the Siamese.
     </div>

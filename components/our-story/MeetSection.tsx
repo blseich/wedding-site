@@ -1,21 +1,18 @@
 import Image from 'next/image';
-import how_we_became_us from '../../public/How_We_Became_Us.svg';
 import short_north_pint_house from '../../public/short_north_pint_house.jpg';
+import { Great_Vibes } from '@next/font/google';
 import { css } from '@emotion/react';
+
+const subHeaderFont = Great_Vibes({
+  weight: "400",
+  subsets: ['latin'],
+});
 
 const MeetSection = () => (
   <>
-    <Image
-      css={css`
-        width: 70%;
-        height: auto;
-        back-drop
-      `}
-      src={how_we_became_us.src}
-      height={how_we_became_us.height}
-      width={how_we_became_us.width}
-      alt={'how we became us'}
-    />
+    <div css={css`color: #fffaf3; font-size: 2.5rem; font-family: ${subHeaderFont.style.fontFamily}; text-align: left;`}>
+      How We<br /><span css={css`margin-left: 20%;`}>Became Us</span>
+    </div>
     <div>
       It was June 2019. Maddi had recently moved to Columbus and made a new group of girl friends, one of which included now Bridesmaid, Riley Neuhardt. One weekend, Brandon and Groomsman Taylor Larr called Riley to invite her to the Ribs & Jazz festival. She informed them she was downtown bar hopping with some girls. Ribs & Jazz were promptly forgotten.
     </div>
