@@ -55,7 +55,7 @@ text-shadow: 1px 1px 2px black;
 const Registry = () => {
   return (
     <>
-      <ParallaxBanner style={{height: '100%', width: '100%'}}>
+      <ParallaxBanner id="registry" style={{height: '100%', width: '100%'}}>
       <ParallaxBannerLayer speed={-50}>
         <OurStoryBackground />
       </ParallaxBannerLayer>

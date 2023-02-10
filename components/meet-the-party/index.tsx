@@ -82,7 +82,7 @@ useEffect(() => {
 
 return (
   <>
-    <ParallaxBanner style={{height: '100%', width: '100%'}}>
+    <ParallaxBanner id="crew" style={{height: '100%', width: '100%'}}>
     <ParallaxBannerLayer speed={-50}>
       <OurStoryBackground />
     </ParallaxBannerLayer>

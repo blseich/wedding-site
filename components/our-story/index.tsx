@@ -66,7 +66,7 @@ const OurStory = () => {
 
   return (
     <>
-      <ParallaxBanner style={{height: '100%', width: '100%'}}>
+      <ParallaxBanner id="story" style={{height: '100%', width: '100%'}}>
         <ParallaxBannerLayer speed={-50}>
           <OurStoryBackground />
         </ParallaxBannerLayer>

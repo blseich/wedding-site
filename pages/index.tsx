@@ -6,6 +6,7 @@ import say_i_do from '../public/Say_I_Do.svg';
 import { Playfair_Display_SC, Francois_One, Raleway } from '@next/font/google';
 import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
+import Navigation from '../components/navigation';
 import OurStory from '../components/our-story';
 import MeetTheParty from '../components/meet-the-party';
 import TheDetails from '../components/the-details';
@@ -107,6 +108,7 @@ export default function Home() {
       </Head>
       <BWBackground src={bw_bg.src} />
       <ColorBackground src={color_bg.src} />
+      <Navigation />
       <Main>
         <div style={{
           display: 'flex',
