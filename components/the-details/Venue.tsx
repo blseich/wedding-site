@@ -26,25 +26,26 @@ const Venue = () => {
   return (
     <div css={css`display: flex; flex-direction: column; justify-content: center; height: 100%; padding: 0 1rem;`}>
       <div css={css`font-size: 3rem; font-family: ${headerFont.style.fontFamily}; letter-spacing: .5rem;`}>Venue</div>
-      <div css={css`display: flex; flex-direction: column; align-items: center; justify-content: space-around; flex-grow: 1; font-family: ${textFont.style.fontFamily};`}>
+      <div css={css`display: flex; flex-direction: column; justify-content: space-around; flex-grow: 1; font-family: ${textFont.style.fontFamily};`}>
         <div css={css`display: flex; flex-direction: column; text-align: right;`}>
           <div css={css`display: flex; align-items: end; justify-content: end; font-size: 2rem; font-family: ${subHeaderFont.style.fontFamily};`}>Location<FontAwesomeIcon icon={faLocationDot} css={css`margin-left: 1rem; font-size: 3rem; color: #13273f;`}/></div>
           Ceremony and Reception to be held at
-          <div css={css`display: flex; flex-direction: column; align-items: center; margin-top: 1rem;`}>
+          <div css={css`display: flex; flex-direction: column; align-items: end; margin-top: 1rem;`}>
             <a
               href="https://events.strongwatercolumbus.com/"
+              css={css`width: 50%; margin-right: auto; margin-left: auto;`}
             >
               <Image 
                 src={strongwater_logo.src}
                 height={100}
                 width={strongwater_logo.width}
                 alt="Strongwater food and spirits logo"
-                css={css`width: auto; margin: .5rem 0;`}
+                css={css`width: 100%; margin: .5rem 0; height: auto;`}
               />
             </a>
             <iframe
-              width="90%"
-              height="275"
+              width="100%"
+              height="250"
               css={css`border: 2px solid #13273f; padding: 2px;`}
               loading="lazy"
               allowFullScreen
