@@ -111,9 +111,9 @@ const LadiesDrawer = ({isOpen, onClose}: {isOpen: boolean, onClose: () => void})
           CLOSE
         </div>
       </button>
-      <Swiper direction="vertical" css={css`height: 100%; flex-grow: 1; display: flex; align-items: center; & .swiper-slide {flex-grow: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 1rem; padding: 0 .5rem;}`}>
+      <Swiper  noSwiping direction="vertical" css={css`height: 100%; flex-grow: 1; display: flex; align-items: center; & .swiper-slide {flex-grow: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 1rem; padding: 0 .5rem;}`}>
           {bridesmaids.map(bridesmaid => (
-            <SwiperSlide key={`bridesmaid_${bridesmaid.first}`} >
+            <SwiperSlide className={'swiper-no-swiping'} key={`bridesmaid_${bridesmaid.first}`} >
               <img css={css`align-self: flex-end;`} src={'https://via.placeholder.com/175'} />
               <div 
                 css={css`

@@ -6,14 +6,10 @@ import Image from 'next/image';
 import { Great_Vibes } from '@next/font/google';
 import laughing_couple_portrait from '../../public/Maddi&Brandon_Couples-33.jpg';
 import laughing_couple_landscape from '../../public/Maddi&Brandon_Couples-35.jpg';
-// import the_ladies from '../../public/the_ladies.svg';
 import dress from '../../public/dress.svg';
 import suit from '../../public/suit.svg';
 import flowers from '../../public/flowers.svg';
 import rings from '../../public/rings.svg';
-import the_gentlemen from '../../public/the_gentlemen.svg';
-import the_little_ones from '../../public/the_little_ones.svg';
-import our_story from '../../public/Our_Story.svg';
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -21,20 +17,7 @@ import LadiesDrawer from './ladies-drawer';
 import GentlemenDrawer from './gentlemen-drawer';
 import LittleOnesDrawer from './little-ones-drawer';
 
-const swiperOverrides = css`
-.swiper-button-next {
-  color: #fffaf3;
-  &:after {
-    font-size: 1rem;
-  }
-}
-.swiper-button-prev {
-  color: #fffaf3;
-  &:after {
-    font-size: 1rem;
-  }
-}
-`;
+import useOnScreen from '../../hooks/use-on-screen';
 
 const subHeaderFont = Great_Vibes({
   weight: "400",
@@ -71,6 +54,11 @@ const Title = styled.div`
 
 const [open, setOpen] = useState('');
 const scrollRef = useRef<HTMLDivElement>(null);
+const onScreen = useOnScreen(scrollRef);
+
+useEffect(() => {
+  !onScreen && setOpen('');
+}, [onScreen])
 
 return (
   <>

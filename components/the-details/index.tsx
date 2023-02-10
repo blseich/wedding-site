@@ -10,6 +10,7 @@ import Venue from './Venue';
 import Schedule from './Schedule';
 import Travel from './Travel';
 import Info from './Info';
+import useOnScreen from '../../hooks/use-on-screen';
 
 const headerFont = Playfair_Display_SC({
   weight: "400",
@@ -128,6 +129,14 @@ const TheDetails = () => {
   const [flipped, setFlipped] = useState(false);
   const [activePanel, setActivePanel] = useState<JSX.Element | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
+  const onScreen = useOnScreen(scrollRef);
+
+  useEffect(() => {
+    if (!onScreen) {
+      setFlipped(false);
+      setActivePanel(null);
+    }
+  }, [onScreen])
 
   const activatePanel = (panel: JSX.Element): void => {
     setFlipped(true);

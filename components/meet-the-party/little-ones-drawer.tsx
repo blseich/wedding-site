@@ -111,9 +111,9 @@ const LittleOnesDrawer = ({isOpen, onClose}: {isOpen: boolean, onClose: () => vo
           CLOSE
         </div>
       </button>
-      <Swiper css={css`width: 100%; flex-grow: 1; display: flex; flex-direction: column; align-items: center; & .swiper-slide {flex-grow: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 1rem; padding: 0 .5rem;}`}>
+      <Swiper noSwiping css={css`width: 100%; flex-grow: 1; display: flex; flex-direction: column; align-items: center; & .swiper-slide {flex-grow: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 1rem; padding: 0 .5rem;}`}>
           {littleOnes.map(littleOne => (
-            <SwiperSlide key={`littleOne_${littleOne.first}`} >
+            <SwiperSlide className='swiper-no-swiping' key={`littleOne_${littleOne.first}`} >
               <img src={'https://via.placeholder.com/175'} />
               <div 
                 css={css`

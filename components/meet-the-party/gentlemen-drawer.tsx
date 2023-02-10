@@ -90,10 +90,10 @@ const GentlemenDrawer = ({isOpen, onClose}: {isOpen: boolean, onClose: () => voi
         }
       `}
     >
-      <Swiper direction="vertical" css={css`height: 100%; flex-grow: 1; display: flex; align-items: center; & .swiper-slide {flex-grow: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 1rem; padding: 0 .5rem;} & .swiper-wrapper { order: 1;}`}>
+      <Swiper noSwiping direction="vertical" css={css`height: 100%; flex-grow: 1; display: flex; align-items: center; & .swiper-slide {flex-grow: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 1rem; padding: 0 .5rem;} & .swiper-wrapper { order: 1;}`}>
           <Controls />
           {groomsmen.map((groomsman) => (
-            <SwiperSlide key={`groomsman_${groomsman.first}`} >
+            <SwiperSlide className={'swiper-no-swiping'} key={`groomsman_${groomsman.first}`} >
               <img css={css`align-self: flex-start;`} src={'https://via.placeholder.com/175'} />
               <div 
                 css={css`
