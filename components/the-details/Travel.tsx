@@ -28,7 +28,7 @@ const Venue = () => {
   return (
     <div css={css`display: flex; flex-direction: column; justify-content: center; height: 100%; padding: 0 1rem;`}>
       <div css={css`font-size: 3rem; font-family: ${headerFont.style.fontFamily}; letter-spacing: .5rem;`}>Travel</div>
-      <div css={css`flex-grow: 1; display: flex; flex-direction: column; justify-content: space-evenly;`}>
+      <div css={css`flex-grow: 1; display: flex; flex-direction: column; justify-content: space-evenly; font-family: ${textFont.style.fontFamily};`}>
         Joining us from out of town? We&apos;re so happy you can make it!
         <div css={css`display: flex; flex-direction: column;`}>
           <div css={css`display: flex; justify-content: end; align-items: end; font-size: 2rem; font-family: ${subHeaderFont.style.fontFamily};`}>Hotel Block <FontAwesomeIcon icon={faHotel} css={css`font-size: 3rem; color: #13273f; margin-left: 1rem;`}/></div>
