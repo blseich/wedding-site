@@ -71,24 +71,36 @@ const Registry = () => {
         </div>
         <div css={css`font-family: ${headerFont.style.fontFamily}; font-size: 3rem; letter-spacing: .5rem;`}>Thank You</div>
         <div css={css`display: flex; flex-direction: column; align-items: center;`}>
-          <Image 
-            src={amazon_logo.src}
-            width={175}
-            height={amazon_logo.height}
-            alt={'amazon log'}
-          />
-          <Image 
-            src={crate_and_barrel_logo.src}
-            width={175}
-            height={crate_and_barrel_logo.height}
-            alt={'crate and barrel logo'}
-          />
-          <Image 
-            src={target_logo.src}
-            width={175}
-            height={target_logo.height}
-            alt={'target logo'}
-          />
+          <a
+            href="https://www.amazon.com/wedding/maddi-taylor-brandon-seich--may-2023/registry/2RJPZ4KB94U0P"
+          >
+            <Image 
+              src={amazon_logo.src}
+              width={175}
+              height={amazon_logo.height}
+              alt={'amazon log'}
+            />
+          </a>
+          <a
+            href={"https://www.crateandbarrel.com/gift-registry/maddi-taylor-and-brandon-seich/r6636668"}
+          >
+            <Image 
+              src={crate_and_barrel_logo.src}
+              width={175}
+              height={crate_and_barrel_logo.height}
+              alt={'crate and barrel logo'}
+            />
+          </a>
+          <a
+            href="https://www.target.com/gift-registry/gift/maddi-brandon"
+          >
+            <Image 
+              src={target_logo.src}
+              width={175}
+              height={target_logo.height}
+              alt={'target logo'}
+            />
+          </a>
         </div>
       </div>
     </>
