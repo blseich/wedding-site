@@ -77,19 +77,19 @@ const LittleOnesDrawer = ({isOpen, onClose}: {isOpen: boolean, onClose: () => vo
     <div
       className={isOpen ? 'open' : ''}
       css={css`
-        height: 100%;
+        height: calc(100% - 3rem);
         width: 100%;
         z-index: 1;
         top: 0;
         position: absolute;
-        transform: translateY(100%);
+        transform: translateY(calc(100% + 3rem));
         background: #fffaf3;
         transition: transform .4s ease-in;
         display: flex;
         flex-direction: column;
         align-items: center;
         &.open {
-          transform: translateY(0);
+          transform: translateY(3rem);
         }
       `}
     >
