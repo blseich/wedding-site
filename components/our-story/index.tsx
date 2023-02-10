@@ -97,7 +97,7 @@ const OurStory = () => {
             position: sticky;
             @media (max-width: 650px) {
               top: 0%;
-              padding-top: 10%;
+              padding-top: 3.5rem;
               background: #13273f;
               z-index: 2;
             }

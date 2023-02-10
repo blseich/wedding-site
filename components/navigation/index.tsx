@@ -9,7 +9,7 @@ import { useState } from "react";
 const Navigation = () => {
   const [open, setOpen] = useState(false);
   return (
-  <>
+  <div css={css`position: fixed; top: 0; left: 0; z-index: 3; width: 100%;`}>
     <div css={css`
       position: absolute; 
       top: 0; 
@@ -19,11 +19,11 @@ const Navigation = () => {
       align-items: center;
       display: flex;
       background: #13273f;
-      z-index: 3;
+      z-index: 4;
     `}>
       <Link href="/">
         <Image
-          css={css`height: 2rem; width: auto; margin: 0 10px; z-index: 3;`}
+          css={css`height: 2rem; width: auto; margin: 0 10px; z-index: 4;`}
           src={monogram.src}
           height={monogram.height}
           width={monogram.width}
@@ -33,7 +33,7 @@ const Navigation = () => {
       <OpenCloseIcon isOpen={open} toggleFunc={setOpen} />
     </div>
     <Drawer isOpen={open} onNavigate={() => setOpen(false)}/>
-  </>
+  </div>
   )
 }
 

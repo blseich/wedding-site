@@ -181,7 +181,7 @@ const TheDetails = () => {
             </FlipCardLink>
           </div>
           <div css={[flipCardFace, flipCardBack]}>
-            <FontAwesomeIcon icon={faXmark} onClick={() => {setFlipped(false); setActivePanel(null);}} css={css`position: absolute; top: .5rem; right: .5rem; height: 2rem;`}/>
+            <FontAwesomeIcon icon={faXmark} onClick={() => {setFlipped(false); setActivePanel(null);}} css={css`position: absolute; top: 4rem; right: .5rem; height: 2rem;`}/>
             {activePanel}
           </div>
         </div>

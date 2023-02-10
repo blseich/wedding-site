@@ -24,7 +24,7 @@ const textFont = Raleway({
 const Venue = () => {
 
   return (
-    <div css={css`display: flex; flex-direction: column; justify-content: center; height: 100%; padding: 0 1rem;`}>
+    <div css={css`display: flex; flex-direction: column; justify-content: center; height: 100%; padding: 3rem 1rem 0;`}>
       <div css={css`font-size: 3rem; font-family: ${headerFont.style.fontFamily}; letter-spacing: .5rem;`}>Venue</div>
       <div css={css`display: flex; flex-direction: column; justify-content: space-around; flex-grow: 1; font-family: ${textFont.style.fontFamily};`}>
         <div css={css`display: flex; flex-direction: column; text-align: right;`}>
