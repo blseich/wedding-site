@@ -129,15 +129,6 @@ const TheDetails = () => {
   const [activePanel, setActivePanel] = useState<JSX.Element | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    if(activePanel === null) {
-      document.body.style.overflow = 'unset'
-    } else {
-      document.body.style.overflow = 'hidden'
-    }
-  }, [activePanel])
-  
-
   const activatePanel = (panel: JSX.Element): void => {
     setFlipped(true);
     scrollRef.current?.scrollIntoView();

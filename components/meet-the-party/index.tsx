@@ -72,14 +72,6 @@ const Title = styled.div`
 const [open, setOpen] = useState('');
 const scrollRef = useRef<HTMLDivElement>(null);
 
-useEffect(() => {
-  if(open) {
-    document.body.style.overflow = 'hidden'
-  } else {
-    document.body.style.overflow = 'unset'
-  }
-}, [open])
-
 return (
   <>
     <ParallaxBanner id="crew" style={{height: '100%', width: '100%'}}>
