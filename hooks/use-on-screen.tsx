@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const useOnScreen = (ref: { current: Element; }): boolean => {
+const useOnScreen = (ref: { current: Element | null; }): boolean => {
   const [isIntersecting, setIntersecting] = useState(false);
   useEffect(() => {
     const el = ref.current;
@@ -13,7 +13,7 @@ const useOnScreen = (ref: { current: Element; }): boolean => {
       observer.observe(el);
     }
     return () => {
-      observer.unobserve(el);
+      el && observer.unobserve(el);
     };
   }, []);
   return isIntersecting;
