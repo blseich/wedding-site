@@ -81,6 +81,9 @@ return (
       margin-left: auto;
       position: relative;
       overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
     `}>
       <div
         onClick={() => {setOpen('ladies'); scrollRef.current?.scrollIntoView(); }}
@@ -137,48 +140,7 @@ return (
           font-family: ${subHeaderFont.style.fontFamily};
           text-align: left;
         `}>The<br />Gentlemen</div>
-        
-        
-      </div>
-      <GentlemenDrawer isOpen={open === 'gentlemen'} onClose={() => setOpen('')} />
-      <div
-        onClick={() => {setOpen('littleOnes'); scrollRef.current?.scrollIntoView();}} 
-        css={css`
-          width: 100%;
-          height: 33%;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-      `}>
-        <div css={css`
-          border-bottom: 2px solid #fffaf3;
-          padding-bottom: 0.5rem;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        `}>
-          <Image css={css`width: auto;`} 
-            src={flowers.src}
-            height={96}
-            width={flowers.width}
-            alt={"flowers"}
-            />
-          <div css={css`
-            font-size: 3rem;
-            color: #fffaf3;
-            font-family: ${subHeaderFont.style.fontFamily};
-            text-align: center;
-            `}>
-            The<br /> Little Ones
-          </div>
-          <Image css={css`width: auto;`}
-            src={rings.src}
-            height={96}
-            width={rings.width}
-            alt={"flowers"}
-            />
-          </div>
-          <LittleOnesDrawer isOpen={open === 'littleOnes'} onClose={() => setOpen('')} />
+        <GentlemenDrawer isOpen={open === 'gentlemen'} onClose={() => setOpen('')} />
       </div>
     </div>
   </>

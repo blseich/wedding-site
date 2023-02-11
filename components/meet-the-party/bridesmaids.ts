@@ -1,9 +1,16 @@
+import Nguyen from '../../public/profiles/Nguyen.jpg';
+import Oney from '../../public/profiles/Oney.jpg';
+import Neuhardt from '../../public/profiles/Neuhardt.jpg';
+import Ridgeway from '../../public/profiles/Ridgeway.jpg';
+import Rump from '../../public/profiles/Rump.jpg';
+
+
 const bridesmaids = [
   {
     "first": "Alex",
     "last": "Nguyen",
     "role": "Matron of Honor - Sister of the Bride",
-    "img": "https://via.placeholder.com/125",
+    "img": Nguyen.src,
     "intro": "tincidunt lobortis feugiat vivamus at augue eget arcu dictum varius duis at consectetur lorem donec massa sapien faucibus et molestie ac feugiat"
   },
   {
@@ -24,28 +31,28 @@ const bridesmaids = [
     "first": "Maddie",
     "last": "Oney",
     "role": "Bridesmaid",
-    "img": "https://via.placeholder.com/125",
+    "img": Oney.src,
     "intro": "tincidunt lobortis feugiat vivamus at augue eget arcu dictum varius duis at consectetur lorem donec massa sapien faucibus et molestie ac feugiat"
   },
   {
     "first": "Riley",
     "last": "Neuhardt",
     "role": "Bridesmaid",
-    "img": "https://via.placeholder.com/125",
+    "img": Neuhardt.src,
     "intro": "tincidunt lobortis feugiat vivamus at augue eget arcu dictum varius duis at consectetur lorem donec massa sapien faucibus et molestie ac feugiat"
   },
   {
     "first": "Jessica",
     "last": "Ridgeway",
     "role": "Bridesmaid",
-    "img": "https://via.placeholder.com/125",
+    "img": Ridgeway.src,
     "intro": "tincidunt lobortis feugiat vivamus at augue eget arcu dictum varius duis at consectetur lorem donec massa sapien faucibus et molestie ac feugiat"
   },
   {
     "first": "Olivia",
     "last": "Rump",
     "role": "Bridesmaid",
-    "img": "https://via.placeholder.com/125",
+    "img": Rump.src,
     "intro": "tincidunt lobortis feugiat vivamus at augue eget arcu dictum varius duis at consectetur lorem donec massa sapien faucibus et molestie ac feugiat"
   },
 ];

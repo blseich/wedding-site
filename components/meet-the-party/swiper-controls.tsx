@@ -71,7 +71,15 @@ return (
 );
 };
 
-const IconSelectors = () => {
+type Crew = {
+  first: string,
+  last: string,
+  role: string,
+  img: string,
+  intro: string,
+};
+
+const IconSelectors = ({ group }: { group: Crew[]}) => {
 const swiper = useSwiper();
 
 const [activeIndex, setActiveIndex] = useState(swiper.activeIndex);
@@ -88,8 +96,8 @@ useEffect(() => {
 
 return (
   <div css={css`display: flex; flex-direction: column; justify-content: space-around; padding: 0 .5rem; height: 100%;`}>
-    {groomsmen.map((groomsman, i) => (
-      <img key={i} src={groomsman.img} css={[activeIndex === i ? activeIcon : inactiveIcon, css`border-radius: 100%;`]} onClick={() => swiper.slideTo(i)}/>
+    {group.map((member, i) => (
+      <img key={i} src={member.img} css={[activeIndex === i ? activeIcon : inactiveIcon, css`border-radius: 100%;`]} onClick={() => swiper.slideTo(i)}/>
     ))}
   </div>
 )

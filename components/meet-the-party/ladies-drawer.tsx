@@ -86,7 +86,7 @@ const LadiesDrawer = ({isOpen, onClose}: {isOpen: boolean, onClose: () => void})
       <Swiper noSwiping direction="vertical" css={css`height: 100%; flex-grow: 1; display: flex; align-items: center; & .swiper-slide {flex-grow: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 1rem; padding: 0 .5rem;}`}>
         {bridesmaids.map(bridesmaid => (
           <SwiperSlide className={'swiper-no-swiping'} key={`bridesmaid_${bridesmaid.first}`} >
-            <img css={css`align-self: flex-end;`} src={'https://via.placeholder.com/175'} />
+            <img css={css`align-self: flex-end;`} src={bridesmaid.img} />
             <div 
               css={css`
               font-style: ${textFont.style.fontFamily}
@@ -105,7 +105,7 @@ const LadiesDrawer = ({isOpen, onClose}: {isOpen: boolean, onClose: () => void})
         <PrevButton />
         <NextButton />
         <div css={css`border-left: 2px solid #13273f; width: 75px; height: 75%;`}>
-          <IconSelectors />
+          <IconSelectors group={bridesmaids} />
         </div>
       </Swiper>
   </div>);

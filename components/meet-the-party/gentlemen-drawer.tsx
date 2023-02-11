@@ -66,7 +66,7 @@ const GentlemenDrawer = ({isOpen, onClose}: {isOpen: boolean, onClose: () => voi
     >
       <Swiper noSwiping direction="vertical" css={css`height: 100%; flex-grow: 1; display: flex; align-items: center; & .swiper-slide {flex-grow: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 1rem; padding: 0 .5rem;} & .swiper-wrapper { order: 1;}`}>
           <div css={css`width: 75px; height: 75%; border-right: 2px solid #13273f; width: 75px; height: 75%; border-right: 2px solid #13273f;`}>
-            <IconSelectors />
+            <IconSelectors group={groomsmen} />
           </div>
           {groomsmen.map((groomsman) => (
             <SwiperSlide className={'swiper-no-swiping'} key={`groomsman_${groomsman.first}`} >
