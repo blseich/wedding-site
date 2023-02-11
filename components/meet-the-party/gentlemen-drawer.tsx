@@ -70,7 +70,7 @@ const GentlemenDrawer = ({isOpen, onClose}: {isOpen: boolean, onClose: () => voi
           </div>
           {groomsmen.map((groomsman) => (
             <SwiperSlide className={'swiper-no-swiping'} key={`groomsman_${groomsman.first}`} >
-              <img css={css`align-self: flex-start;`} src={'https://via.placeholder.com/175'} />
+              <img css={css`align-self: flex-start;`} src={groomsman.img} />
               <div 
                 css={css`
                   font-style: ${textFont.style.fontFamily}
