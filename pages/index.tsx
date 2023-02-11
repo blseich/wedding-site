@@ -48,7 +48,7 @@ const Header = styled.h1`
 
 const BWBackground = styled.img`
   position: absolute;
-  height: 100%;
+  height: 100vh;
   width: 100%;
   object-fit: cover;
   background-position: center;
@@ -56,7 +56,7 @@ const BWBackground = styled.img`
 
 const ColorBackground = styled.img`
   position: absolute;
-  height: 100%;
+  height: 100vh;
   width: 100%;
   object-fit: cover;
   background-position: center;
