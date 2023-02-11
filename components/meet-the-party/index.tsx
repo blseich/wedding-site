@@ -12,7 +12,6 @@ import flowers from '../../public/flowers.svg';
 import rings from '../../public/rings.svg';
 
 import "swiper/css";
-import "swiper/css/navigation";
 import LadiesDrawer from './ladies-drawer';
 import GentlemenDrawer from './gentlemen-drawer';
 import LittleOnesDrawer from './little-ones-drawer';

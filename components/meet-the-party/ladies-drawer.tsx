@@ -1,10 +1,13 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 import { Playfair_Display_SC, Raleway, Great_Vibes } from '@next/font/google';
-import * as SwiperType from 'swiper';
-import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import bridesmaids from './bridesmaids';
-import { useEffect, useState } from 'react';
+import {
+  NextButton,
+  PrevButton,
+  IconSelectors,
+} from './swiper-controls';
 
 const headerFont = Playfair_Display_SC({
   weight: "400",
@@ -39,37 +42,6 @@ const Role = styled.div`
   font-family: ${subHeaderFont.style.fontFamily};
   font-weight: ${subHeaderFont.style.fontWeight};
 `;
-
-const activeIcon = css`
-  border: 2px solid #13273f;
-  padding: 2px;
-  width: 50px;
-  height: 50px;
-`
-
-const Controls = () => {
-  const swiper = useSwiper();
-
-  const [activeIndex, setActiveIndex] = useState(swiper.activeIndex);
-
-  useEffect(() => {
-    const callback = (newState: {activeIndex: number}) => {
-      setActiveIndex(newState.activeIndex);
-    };
-
-    swiper.on("slideChange", callback);
-
-    return () => swiper.off("slideChange", callback);
-  }, [swiper]);
-
-  return (
-    <div css={css`width: 75px; height: 75%; border-left: 2px solid #13273f; display: flex; flex-direction: column; justify-content: space-around; padding: 0 .5rem; & img { border-radius: 100% }`}>
-      {(new Array(7)).fill(0).map((sum, i) => (
-        <img key={i} src={'https://via.placeholder.com/50'} css={activeIndex === i ? activeIcon : ''} onClick={() => swiper.slideTo(i)}/>
-      ))}
-    </div>
-  )
-}
 
 const LadiesDrawer = ({isOpen, onClose}: {isOpen: boolean, onClose: () => void}) => {
   return  (         
@@ -111,26 +83,30 @@ const LadiesDrawer = ({isOpen, onClose}: {isOpen: boolean, onClose: () => void})
           CLOSE
         </div>
       </button>
-      <Swiper  noSwiping direction="vertical" css={css`height: 100%; flex-grow: 1; display: flex; align-items: center; & .swiper-slide {flex-grow: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 1rem; padding: 0 .5rem;}`}>
-          {bridesmaids.map(bridesmaid => (
-            <SwiperSlide className={'swiper-no-swiping'} key={`bridesmaid_${bridesmaid.first}`} >
-              <img css={css`align-self: flex-end;`} src={'https://via.placeholder.com/175'} />
-              <div 
-                css={css`
-                  font-style: ${textFont.style.fontFamily}
-                  color: #13273f;
-                  text-align: center;
-                `}
-              >
-                {bridesmaid.intro}
-              </div>
-              <div css={css`align-self: flex-start;`}>
-                <Name>{bridesmaid.first}<br />{bridesmaid.last}</Name>
-                <Role>{bridesmaid.role}</Role>
-              </div>
-            </SwiperSlide>
-          ))}
-        <Controls />
+      <Swiper noSwiping direction="vertical" css={css`height: 100%; flex-grow: 1; display: flex; align-items: center; & .swiper-slide {flex-grow: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 1rem; padding: 0 .5rem;}`}>
+        {bridesmaids.map(bridesmaid => (
+          <SwiperSlide className={'swiper-no-swiping'} key={`bridesmaid_${bridesmaid.first}`} >
+            <img css={css`align-self: flex-end;`} src={'https://via.placeholder.com/175'} />
+            <div 
+              css={css`
+              font-style: ${textFont.style.fontFamily}
+              color: #13273f;
+              text-align: center;
+              `}
+            >
+              {bridesmaid.intro}
+            </div>
+            <div css={css`align-self: flex-start;`}>
+              <Name>{bridesmaid.first}<br />{bridesmaid.last}</Name>
+              <Role>{bridesmaid.role}</Role>
+            </div>
+          </SwiperSlide>
+        ))}
+        <PrevButton />
+        <NextButton />
+        <div css={css`border-left: 2px solid #13273f; width: 75px; height: 75%;`}>
+          <IconSelectors />
+        </div>
       </Swiper>
   </div>);
 }
