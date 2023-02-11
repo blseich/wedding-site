@@ -73,7 +73,7 @@ const GentlemenDrawer = ({isOpen, onClose}: {isOpen: boolean, onClose: () => voi
               <img css={css`align-self: flex-start;`} src={groomsman.img} />
               <div 
                 css={css`
-                  font-style: ${textFont.style.fontFamily}
+                  font-family: ${textFont.style.fontFamily};
                   color: #13273f;
                   text-align: center;
                 `}

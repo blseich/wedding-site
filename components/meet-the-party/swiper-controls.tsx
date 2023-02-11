@@ -4,6 +4,7 @@ import { useSwiper } from "swiper/react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleUp, faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import { Raleway } from "@next/font/google";
+import groomsmen from "./groomsmen";
 
 const textFont = Raleway({
   weight: "400",
@@ -31,6 +32,10 @@ const activeIcon = css`
   width: 50px;
   height: 50px;
 `
+
+const inactiveIcon = css`
+  filter: grayscale(100%);
+`;
 
 const PrevButton = () => {
 const swiper = useSwiper();
@@ -83,8 +88,8 @@ useEffect(() => {
 
 return (
   <div css={css`display: flex; flex-direction: column; justify-content: space-around; padding: 0 .5rem; height: 100%;`}>
-    {(new Array(7)).fill(0).map((sum, i) => (
-      <img key={i} src={'https://via.placeholder.com/50'} css={[activeIndex === i ? activeIcon : '', css`border-radius: 100%;`]} onClick={() => swiper.slideTo(i)}/>
+    {groomsmen.map((groomsman, i) => (
+      <img key={i} src={groomsman.img} css={[activeIndex === i ? activeIcon : inactiveIcon, css`border-radius: 100%;`]} onClick={() => swiper.slideTo(i)}/>
     ))}
   </div>
 )

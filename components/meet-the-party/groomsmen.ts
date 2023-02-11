@@ -4,6 +4,7 @@ import Ferguson from '../../public/profiles/Ferguson-Ian.jpg';
 import SeichBryan from '../../public/profiles/Seich-Bryan.jpg';
 import SeichJordan from '../../public/profiles/Seich-Jordan.jpg';
 import Agler from '../../public/profiles/Agler.jpg';
+import Ross from '../../public/profiles/Ross.jpg';
 
 const groomsmen = [
   {
@@ -45,7 +46,7 @@ const groomsmen = [
     "first": "Tyler",
     "last": "Ross",
     "role": "Groomsman",
-    "img": "https://via.placeholder.com/125",
+    "img": Ross.src,
     "intro": "No excuses; Tyler Ross will drag you kicking and screaming out of your comfort zone... and you'll always be glad he did. He's a big personality without making anyone else feel smaller. He will never let you doubt yourself."
   },
   {
