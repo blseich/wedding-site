@@ -3,6 +3,8 @@ import Oney from '../../public/profiles/Oney.jpg';
 import Neuhardt from '../../public/profiles/Neuhardt.jpg';
 import Ridgeway from '../../public/profiles/Ridgeway.jpg';
 import Rump from '../../public/profiles/Rump.jpg';
+import Erret from '../../public/profiles/Erret.jpg';
+import Ferguson from '../../public/profiles/Ferguson-Shelly.jpg';
 
 
 const bridesmaids = [
@@ -17,14 +19,14 @@ const bridesmaids = [
     "first": "Randi",
     "last": "Taylor",
     "role": "Maid of Honor - Sister of the Bride",
-    "img": "https://via.placeholder.com/125",
+    "img": Erret.src,
     "intro": "tincidunt lobortis feugiat vivamus at augue eget arcu dictum varius duis at consectetur lorem donec massa sapien faucibus et molestie ac feugiat"
   },
   {
     "first": "Shelly",
     "last": "Ferguson",
     "role": "Bridesmaid",
-    "img": "https://via.placeholder.com/125",
+    "img": Ferguson.src,
     "intro": "tincidunt lobortis feugiat vivamus at augue eget arcu dictum varius duis at consectetur lorem donec massa sapien faucibus et molestie ac feugiat"
   },
   {
