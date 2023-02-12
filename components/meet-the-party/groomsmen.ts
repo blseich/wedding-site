@@ -12,35 +12,35 @@ const groomsmen = [
     "last": "Agler",
     "role": "Best Man",
     "img": Agler.src,
-    "intro": "Bryce Agler has an infectious charisma and exudes enthusiam for everything he does. It's that enthusiam that makes every interaction with Bryce remind you how important you are to him. That reassurance is rare and something to be absolutely coveted."
+    "intro": "When you meet Bryce Agler, you will undoubtled recognized his fierce competitive nature. It's that same nature that drives his commitment to the relationships he builds. He wants to laugh the loudest. He wants to love the hardest. He wants to be your best friend. He more often than not succeeds in all."
   },
   {
     "first": "Bryan",
     "last": "Seich",
     "role": "Groomsman - Brother of the Groom",
     "img": SeichBryan.src,
-    "intro": "Bryan Seich is intentional and pationate. That passion often has a flare for the dramatic but being around Bryan is certainly never dull and always has a way of challenging you to always be your best self."
+    "intro": "Bryan Seich is intentional and passionate. That passion often has a flare for the dramatic so being around Bryan is certainly never dull and always has a way of challenging you to be your best self."
   },
   {
     "first": "Jordan",
     "last": "Seich",
     "role": "Groomsman - Brother of the Groom",
     "img": SeichJordan.src,
-    "intro": "Jordan Seich takes small moments and makes them feel so much bigger. Being around Jordan always leaves you with a smile on your face and a story to share with others. He's you're biggest hype man and your staunchest supporter."
+    "intro": "Jordan Seich takes small moments and makes them feel so much bigger. Being around Jordan always leaves you with a smile on your face and a story to share with others. He's your biggest hype man and your staunchest supporter."
   },
   {
     "first": "Blake",
     "last": "Hampshire",
     "role": "Groomsman",
     "img": Hampshire.src,
-    "intro": "Blake Hampshire navigates life's worries in a way that makes you forget your own. He'll give you the hardest time but stand up if anyone else tries to. There's no one better to have in your corner than him."
+    "intro": "Blake Hampshire navigates life's worries in a way that makes you forget your own. He'll give you the hardest time but stand up if anyone else tries to. There's no one better to have in your corner."
   },
   {
     "first": "Taylor",
     "last": "Larr",
     "role": "Groomsman",
     "img": Larr.src,
-    "intro": "Taylor Larr has a complexity to him that fills so many roles. He can be so safe and comforting while also delivering you the truth you need to hear. He can be your crutch but won't hesitate to lean on you back. It's that reciprocity that makes Taylor such a unique and important person."
+    "intro": "Taylor Larr fills so many roles. He can be safe and comforting yet deliver the truth you need to hear. He can be your crutch but won't hesitate to lean back on you. All of these different colors make Taylor such a unique and important person."
   },
   {
     "first": "Tyler",
