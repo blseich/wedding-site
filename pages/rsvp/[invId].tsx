@@ -1,9 +1,8 @@
 import {google} from 'googleapis';
 import { css } from '@emotion/react';
-import Name from '../../components/foundational/name';
-import {RadioButton, RadioButtonLabel} from '../../components/foundational/RadioButton';
-import { Checkbox } from '../../components/foundational/Checkbox';
+import AttendeeRsvpCard from '../../components/rsvp/AttendeeCard';
 import { Raleway, Playfair_Display_SC } from '@next/font/google';
+import { useState } from 'react';
 
 const headerFont = Playfair_Display_SC({
   weight: "400",
@@ -20,78 +19,61 @@ type Attendee = {
   first: string,
   last: string,
   attending: boolean | undefined,
-  foodRequests: {
-    glutenFree: boolean,
-    vegan: boolean,
-    vegetarian: boolean,
-    dairyFree: boolean,
-    other: string
-  },
-  comments: string,
-  message: string,
+  glutenFree: boolean,
+  vegan: boolean,
+  vegetarian: boolean,
+  dairyFree: boolean,
+  other: string,
+};
+
+type AttendeeMap = {
+  [key: string]: Attendee
 };
 
 const parseAttendee = (rawAttendee: string[]): Attendee => ({
   first: rawAttendee[1],
   last: rawAttendee[2],
-  attending: typeof rawAttendee[3] === 'undefined' ? undefined : rawAttendee[3] === 'Yes',
-  foodRequests: {
-    glutenFree: rawAttendee[4] === "X",
-    vegan: rawAttendee[5] === "X",
-    vegetarian: rawAttendee[6] === "X",
-    dairyFree: rawAttendee[7] === "X",
-    other: rawAttendee[8],
-  },
-  comments: rawAttendee[9],
-  message: rawAttendee[10],
+  attending: !rawAttendee[3] ? undefined : rawAttendee[3] === 'Yes',
+  glutenFree: rawAttendee[4] === "X",
+  vegan: rawAttendee[5] === "X",
+  vegetarian: rawAttendee[6] === "X",
+  dairyFree: rawAttendee[7] === "X",
+  other: rawAttendee[8],
 });
 
-const RSVP = ({ attendees }: { attendees: string[][] }) => {
-
-
+const RSVP = ({ attendeeData }: { attendeeData: string[][] }) => {
+  const [attendees, setAttendees]: [AttendeeMap, (attendees: AttendeeMap) => void] = useState(attendeeData.reduce((attendeeMap, attendee) => ({
+    ...attendeeMap,
+    [`${attendee[1]}`]: parseAttendee(attendee) 
+  }), {}));
+  const [ qsOrCs, setQsOrCs ] = useState(attendeeData[0][9]);
+  const [ message, setMessage ] = useState(attendeeData[0][10]);
+  
   return (
     <div css={css`min-height: 100%; width: 100%; background: #fffaf3; padding: 2rem 1rem;`}>
-      <div css={css`max-width: 650px; margin-right: auto; margin-left: auto; display: flex; flex-direction: column; gap: 2rem;`}>
-        {attendees.map(attendee => {
-          const parsedAttendee = parseAttendee(attendee);
+      <form
+        css={css`max-width: 650px; margin-right: auto; margin-left: auto; display: flex; flex-direction: column; gap: 2rem;`}
+        onSubmit={(e) => {
+          // console.log({
+          //   attendees,
+          //   message,
+          //   qsOrCs,
+          // });
+          e.preventDefault();
+        }}
+      >
+        {Object.keys(attendees).map(name => {
           return (
-            <div key={parsedAttendee.first}>
-              <Name>{parsedAttendee.first}<br />{parsedAttendee.last}</Name>
-              <div css={css`display: flex; justify-content: space-around; margin: 1rem 0;`}>
-                <div css={css`display: flex; flex-direction: column; align-items: center;`}>
-                  <RadioButton type="radio" name={`${parsedAttendee.first}_attending`} id={`${parsedAttendee.first}_yes`} defaultChecked={parsedAttendee.attending === true} />
-                  <RadioButtonLabel htmlFor={`${parsedAttendee.first}_yes`}>Graciously Accepts</RadioButtonLabel>
-                </div>
-                <div css={css`display: flex; flex-direction: column; align-items: center;`}>
-                  <RadioButton type="radio" name={`${parsedAttendee.first}_attending`} id={`${parsedAttendee.first}_no`} defaultChecked={parsedAttendee.attending === false} />
-                  <RadioButtonLabel htmlFor={`${parsedAttendee.first}_no`}>Respectfully Declines</RadioButtonLabel>
-                </div>
-              </div>
-              <div css={css`display: grid; grid-template-rows: 1fr 1fr 1fr 1fr; grid-template-columns: 1fr 1fr; max-width: 75%; margin-right: auto; margin-left: auto; font-family: ${textFont.style.fontFamily}`}>
-                <div css={css`grid-column: 1 / 3; grid-row: 1; border-bottom: 2px solid #13273f; padding: 0.5rem 0; text-align: center; font-size: 1.5rem; font-family: ${headerFont.style.fontFamily}; line-height: 1.25rem;`}>
-                  Food Accomodations
-                </div>
-                <div css={css`grid-column: 1; grid-row: 2; display: flex; align-items: center;`}>
-                  <Checkbox type="checkbox" name={`${parsedAttendee.first}_food`} id={`${parsedAttendee.first}_glutenFree`} defaultChecked={parsedAttendee.foodRequests.glutenFree}/>
-                  <label htmlFor={`${parsedAttendee.first}_glutenFree`} >Gluten Free</label>
-                </div>
-                <div css={css`grid-column: 2; grid-row: 2; display: flex; align-items: center;`}>
-                  <Checkbox type="checkbox" name={`${parsedAttendee.first}_food`} id={`${parsedAttendee.first}_vegan`} defaultChecked={parsedAttendee.foodRequests.vegan} />
-                  <label htmlFor={`${parsedAttendee.first}_vegan`}>Vegan</label>
-                </div>
-                <div css={css`grid-column: 1; grid-row: 3; display: flex; align-items: center;`}>
-                  <Checkbox type="checkbox" name={`${parsedAttendee.first}_food`} id={`${parsedAttendee.first}_vegetarian`} defaultChecked={parsedAttendee.foodRequests.vegetarian} />
-                  <label htmlFor={`${parsedAttendee.first}_vegetarian`}>Vegetarian</label>
-                </div>
-                <div css={css`grid-column: 2; grid-row: 3; display: flex; align-items: center;`}>
-                  <Checkbox type="checkbox" name={`${parsedAttendee.first}_food`} id={`${parsedAttendee.first}_dairyFree`} defaultChecked={parsedAttendee.foodRequests.dairyFree} />
-                  <label htmlFor={`${parsedAttendee.first}_dairyFree`}>Dairy Free</label>
-                </div>
-                <div css={css`grid-column: 1 / 3; grid-row: 4; display: flex; align-items: center;`}>
-                  <Checkbox type="checkbox" name={`${parsedAttendee.first}_food`} id={`${parsedAttendee.first}_other`} defaultChecked={typeof parsedAttendee.foodRequests.other !== "undefined"} />
-                  <label htmlFor={`${parsedAttendee.first}_other`}>Other <input type="text" id={`${parsedAttendee.first}_otherText`} defaultValue={parsedAttendee.foodRequests.other}/></label>
-                </div>
-              </div>
+            <div key={name}>
+              <AttendeeRsvpCard attendee={attendees[name]} onUpdate={(updatedParams) => {
+                setAttendees({
+                  ...attendees,
+                  [`${name}`]: {
+                    ...attendees[name],
+                    ...updatedParams,
+                  }
+                })
+              }}/>
             </div>
           )
         })}
@@ -99,16 +81,31 @@ const RSVP = ({ attendees }: { attendees: string[][] }) => {
           <div css={css`font-size: 1.5rem; font-family: ${headerFont.style.fontFamily}; text-align: center;`}>
             Questions or Comments:
           </div>
-          <textarea id="questionsOrComments" css={css`width: 75%; display: block; margin-right: auto; margin-left: auto;`} rows={4}/>
+          <textarea
+            id="questionsOrComments"
+            css={css`width: 75%; display: block; margin-right: auto; margin-left: auto;`}
+            rows={4}
+            value={qsOrCs}
+            onChange={(e) => setQsOrCs(e.target.value)}
+          />
         </div>
         <div>
           <div css={css`font-size: 1.5rem; font-family: ${headerFont.style.fontFamily}; text-align: center;`}>
             Message to the Couple:
           </div>
-          <textarea id="message" css={css`width: 75%; display: block; margin-right: auto; margin-left: auto;`} rows={4}/>
+          <textarea 
+            id="message"
+            css={css`width: 75%; display: block; margin-right: auto; margin-left: auto;`}
+            rows={4}
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+          />
         </div>
-        <button css={css`width: 50%; font-family: ${headerFont.style.fontFamily}; font-size: 1.5rem; border: 0; background: #13273f; color: #fffaf3; text-align: center; margin-right: auto; margin-left: auto; border-radius: .5rem;`}>SUBMIT</button>
-      </div>
+        <button
+          css={css`width: 50%; font-family: ${headerFont.style.fontFamily}; font-size: 1.5rem; border: 0; background: #13273f; color: #fffaf3; text-align: center; margin-right: auto; margin-left: auto; border-radius: .5rem;`}
+          type='submit'
+        >SUBMIT</button>
+      </form>
     </div>
   )
 }
@@ -133,10 +130,9 @@ export async function getServerSideProps({ params }: { params: { invId: string }
     spreadsheetId: spreadsheetId,
     range: sheetName
   });
-  const attendees = (sheetsRes.data.values || []).filter(row => row[0] === invId);
-
+  const attendeeData = (sheetsRes.data.values || []).filter(row => row[0] === invId);
   return {
-    props: { attendees, invId },
+    props: { attendeeData, invId },
   }
 }
 
