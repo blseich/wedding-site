@@ -1,8 +1,8 @@
 import {google} from 'googleapis';
 import { css } from '@emotion/react';
-import Name from './components/name';
-import {RadioButton, RadioButtonLabel} from './components/RadioButton';
-import { Checkbox } from './components/Checkbox';
+import Name from '../../components/foundational/name';
+import {RadioButton, RadioButtonLabel} from '../../components/foundational/RadioButton';
+import { Checkbox } from '../../components/foundational/Checkbox';
 import { Raleway, Playfair_Display_SC } from '@next/font/google';
 
 const headerFont = Playfair_Display_SC({
