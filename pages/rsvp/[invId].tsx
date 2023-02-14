@@ -46,7 +46,7 @@ const parseAttendee = (rawAttendee: string[]): Attendee => ({
   message: rawAttendee[10],
 });
 
-const RSVP = ({ attendees }) => {
+const RSVP = ({ attendees }: { attendees: string[][] }) => {
 
 
   return (
@@ -113,11 +113,11 @@ const RSVP = ({ attendees }) => {
   )
 }
 
-export async function getServerSideProps({ params }) {
+export async function getServerSideProps({ params }: { params: { invId: string }}) {
   const { invId } = params;
   
   const credentials = JSON.parse(
-    Buffer.from(process.env.GOOGLE_SERVICE_KEY, "base64").toString()
+    Buffer.from(process.env.GOOGLE_SERVICE_KEY as string, "base64").toString()
   );
   const client = new google.auth.JWT({
     email: credentials.client_email,

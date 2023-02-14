@@ -1,10 +1,11 @@
 import {google} from 'googleapis';
+import type { NextApiRequest, NextApiResponse } from 'next'
 
-const Invitation = async (req, res) => {
+const Invitation = async (req: NextApiRequest, res: NextApiResponse) => {
   const { invId } = req.query;
   
   const credentials = JSON.parse(
-    Buffer.from(process.env.GOOGLE_SERVICE_KEY, "base64").toString()
+    Buffer.from(process.env.GOOGLE_SERVICE_KEY as string, "base64").toString()
   );
   const client = new google.auth.JWT({
     email: credentials.client_email,
