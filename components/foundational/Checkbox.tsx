@@ -15,6 +15,7 @@ export const Checkbox = styled.input`
     width: 1.25rem;
     display: grid;
     place-items: center;
+    background: white;
     
     &:checked {
       background-color: #13273f;
