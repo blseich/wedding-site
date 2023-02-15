@@ -21,7 +21,7 @@ const Navigation = () => {
       background: #13273f;
       z-index: 4;
     `}>
-      <Link href="/">
+      <Link href="/" onClick={() => setOpen(false)}>
         <Image
           css={css`height: 2rem; width: auto; margin: 0 10px; z-index: 4;`}
           src={monogram.src}

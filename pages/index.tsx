@@ -90,12 +90,35 @@ const Date = styled.div`
   text-shadow: 1px 1px 2px black;
   place-self: center;
   grid-row-start: 3;
+  grid-column-start: 1;
   z-index: 1;
 
   span {
     font-size: 2.5rem;
   }
 `
+const RSVPButton = styled.a`
+  width: 75%;
+  z-index: 1;
+  grid-row-start: 3;
+  grid-column-start: 1;
+  align-self: end;
+  height: 3rem;
+  font-family: '__Playfair_Display_SC_40f3bc';
+  font-size: 2rem;
+  line-height: 1.5rem;
+  background: #13273f;
+  border: none;
+  border-radius: 6px;
+  color: #fffaf3;
+  letter-spacing: 0.5rem;
+  margin-bottom: 2.5rem;
+  justify-self: center;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
 
 export default function Home() {
   return (
@@ -125,6 +148,7 @@ export default function Home() {
           />
         </div>
         <Date>5<span>&#8901;</span>13<span>&#8901;</span>23</Date>
+        <RSVPButton role={'link'} href="/rsvp">RSVP</RSVPButton>
       </Main>
       <OurStory />
       <MeetTheParty />
