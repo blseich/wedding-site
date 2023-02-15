@@ -1,6 +1,7 @@
 import { css, SerializedStyles, keyframes } from "@emotion/react";
 import styled from "@emotion/styled";
 import { Playfair_Display_SC } from "@next/font/google";
+import Link from "next/link";
 
 const circleSize = '2rem'
 
@@ -52,7 +53,7 @@ const loadingButtonRotate = keyframes`
     transform: translate(-50%, -50%) rotate(360deg);
   }
 `;
-  
+
 const base = css`
   font-family: ${headerFont.style.fontFamily};
   font-size: 1.5rem;
@@ -107,25 +108,23 @@ const success = css`
      }
 
      &:after {
-    content: '';
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      display: inline-block;
+      height: 25%;
+      width: 50%;
 
-    position: absolute;
-    top: 50%;
-    left: 50%;
+      border: 3px solid #fff;
+      border-top-width: 0;
+      border-right-width: 0;
 
-    Simulate checkmark icon
-    display: inline-block;
-    height: 25%;
-    width: 50%;
+      transform: translate(-50%, -75%) rotate(-45deg);
 
-    border: 3px solid #fff;
-    border-top-width: 0;
-    border-right-width: 0;
-
-    transform: translate(-50%, -75%) rotate(-45deg);
-
-    animation: 
-      ${loadingButtonFadeIn} .6s ease;
+      animation: 
+        ${loadingButtonFadeIn} .6s ease;
+    }
 `;
 
 const error = css`
@@ -195,20 +194,41 @@ const styleMap: { [key: string]: SerializedStyles[]} = {
   error: [morphed, error],
 }
 
-const SubmitButton = ({ status }: {status: string}) => {
-  return (
-    <SubmitButtonWrapper>
+const messageFadeIn = css`
+  text-align: center;
+  animation:
+    ${loadingButtonFadeIn} .6s ease;
+`
 
-      <button
-        css={[base, ...styleMap[status]]}
-        type='submit'
-        disabled={status === 'incomplete'}
-      >
-        <SubmitButtonText className="text">
-          SUBMIT
-        </SubmitButtonText>
-      </button>
-    </SubmitButtonWrapper>
+const SubmitButton = ({ 
+  status,
+  successMsg,
+  errorMsg,
+}: {
+  status: string,
+  successMsg?: string | JSX.Element | null,
+  errorMsg?: string | JSX.Element | null,
+}) => {
+  return (
+    <div css={css`display: flex; flex-direction: column; align-items: center;`}>
+      <SubmitButtonWrapper>
+        <button
+          css={[base, ...styleMap[status]]}
+          type='submit'
+          disabled={status === 'incomplete'}
+        >
+          <SubmitButtonText className="text">
+            SUBMIT
+          </SubmitButtonText>
+        </button>
+      </SubmitButtonWrapper>
+      {status === 'success' && <div css={messageFadeIn}>
+        {successMsg}
+      </div>}
+      {status === 'error' && <div css={messageFadeIn}>
+        {errorMsg}
+      </div>}
+    </div>
   );
 }
 

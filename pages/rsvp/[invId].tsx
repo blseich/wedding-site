@@ -4,6 +4,7 @@ import AttendeeRsvpCard from '../../components/rsvp/AttendeeCard';
 import { Raleway, Playfair_Display_SC } from '@next/font/google';
 import { useEffect, useState } from 'react';
 import SubmitButton from '../../components/rsvp/SubmitButton';
+import Link from 'next/link';
 
 const headerFont = Playfair_Display_SC({
   weight: "400",
@@ -112,7 +113,19 @@ const RSVP = ({ attendeeData, invId }: { attendeeData: string[][], invId: string
             onChange={(e) => setMessage(e.target.value)}
           />
         </div>
-        <SubmitButton status={submitStatus} />
+        <SubmitButton 
+          status={submitStatus}
+          successMsg={
+            <>
+              Thank you for your response. Come back at any time to make changes.<br/><br/>
+              Want to keep browsing? Click <Link href='/'>here</Link> to return home or <Link href="/#registry">here</Link> to check out our registry.
+            </>
+          }
+          errorMsg={
+            <>
+              There was an error submitting your response. Please click <Link href="javascript:window.scrollTo(0,0);location.reload();">here</Link> to refresh your browser and try again.
+            </>}
+        />
       </form>
     </div>
   )

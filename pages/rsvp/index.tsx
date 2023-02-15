@@ -70,9 +70,13 @@ const RSVP = () => {
           <input type="text" css={css`font-size: 1.5rem; font-family: ${headerFont.style.fontFamily};`} onChange={(e) => setLast(e.target.value)} value={last}/>
         </div>
       </div>
-      <SubmitButton status={submitStatus} />
-      {submitStatus === 'success' && <div css={css`font-family: ${textFont.style.fontFamily}; text-align: center;`}>Invitaion Found! Redirecting...</div>}
-      {submitStatus === 'error' && <div css={css`font-family: ${textFont.style.fontFamily}; text-align: center;`}>There was a problem finding your reservation.<br/>Please try re-entering your name above.</div>}
+      <SubmitButton
+        status={submitStatus}
+        successMsg={"Invitaion Found! Redirecting..."}
+        errorMsg={<>
+          There was a problem finding your reservation.<br/>Please try re-entering your name above.
+        </>}
+      />
     </form>
   )
 }
