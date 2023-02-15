@@ -1,5 +1,6 @@
 import { css } from "@emotion/react";
 import { Playfair_Display_SC } from "@next/font/google";
+import Link from "next/link";
 
 const headerFont = Playfair_Display_SC({
   weight: "400",
@@ -31,10 +32,10 @@ const Drawer = ({isOpen, onNavigate }: {isOpen: boolean, onNavigate: () => void}
       }
 
     `}>
-      <a href="#story" onClick={onNavigate}>The Story</a>
-      <a href="#crew" onClick={onNavigate}>The Crew</a>
-      <a href="#details" onClick={onNavigate}>The Details</a>
-      <a href="#registry" onClick={onNavigate}>The Registry</a>
+      <Link href="/#story" onClick={onNavigate}>The Story</Link>
+      <Link href="/#crew" onClick={onNavigate}>The Crew</Link>
+      <Link href="/#details" onClick={onNavigate}>The Details</Link>
+      <Link href="/#registry" onClick={onNavigate}>The Registry</Link>
     </div>
   )
 

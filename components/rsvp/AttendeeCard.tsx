@@ -29,7 +29,6 @@ type Attendee = {
 
 const AttendeeRsvpCard = ({ attendee, onUpdate }: { attendee: Attendee, onUpdate: (attendee: Partial<Attendee>) => void }) => {
   const update = (key: string, value: boolean | string | undefined) => {
-    console.log(`${key}: ${value}`);
     onUpdate({ [`${key}`]: value });
   }
   

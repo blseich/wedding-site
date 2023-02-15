@@ -2,7 +2,8 @@ import {google} from 'googleapis';
 import { css } from '@emotion/react';
 import AttendeeRsvpCard from '../../components/rsvp/AttendeeCard';
 import { Raleway, Playfair_Display_SC } from '@next/font/google';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import SubmitButton from '../../components/rsvp/SubmitButton';
 
 const headerFont = Playfair_Display_SC({
   weight: "400",
@@ -41,25 +42,35 @@ const parseAttendee = (rawAttendee: string[]): Attendee => ({
   other: rawAttendee[8],
 });
 
-const RSVP = ({ attendeeData }: { attendeeData: string[][] }) => {
+const RSVP = ({ attendeeData, invId }: { attendeeData: string[][], invId: string }) => {
+  const [submitStatus, setSubmitStatus] = useState('ready');
   const [attendees, setAttendees]: [AttendeeMap, (attendees: AttendeeMap) => void] = useState(attendeeData.reduce((attendeeMap, attendee) => ({
     ...attendeeMap,
     [`${attendee[1]}`]: parseAttendee(attendee) 
   }), {}));
   const [ qsOrCs, setQsOrCs ] = useState(attendeeData[0][9]);
   const [ message, setMessage ] = useState(attendeeData[0][10]);
+
+  useEffect(() => {
+    setSubmitStatus('ready');
+  }, [attendees, qsOrCs, message])
   
   return (
-    <div css={css`min-height: 100%; width: 100%; background: #fffaf3; padding: 2rem 1rem;`}>
+    <div css={css`min-height: 100%; max-width: 650px; margin-right: auto; margin-left: auto; background: #fffaf3; padding: 3rem 1rem;`}>
+      <div css={css`color: #13273f; font-size: 4rem; font-family: ${headerFont.style.fontFamily}; border-bottom: 2px solid #13273f;`}>RSVP</div>
       <form
-        css={css`max-width: 650px; margin-right: auto; margin-left: auto; display: flex; flex-direction: column; gap: 2rem;`}
-        onSubmit={(e) => {
-          // console.log({
-          //   attendees,
-          //   message,
-          //   qsOrCs,
-          // });
+        css={css`display: flex; flex-direction: column; gap: 2rem; margin-top: 1rem;`}
+        onSubmit={async (e) => {
+          setSubmitStatus('pending');
           e.preventDefault();
+          const response = await fetch(`/api/rsvpFor/${invId}`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ attendees, qsOrCs, message }),
+          });
+          response.ok ? setSubmitStatus('success') : setSubmitStatus('error');
         }}
       >
         {Object.keys(attendees).map(name => {
@@ -101,10 +112,7 @@ const RSVP = ({ attendeeData }: { attendeeData: string[][] }) => {
             onChange={(e) => setMessage(e.target.value)}
           />
         </div>
-        <button
-          css={css`width: 50%; font-family: ${headerFont.style.fontFamily}; font-size: 1.5rem; border: 0; background: #13273f; color: #fffaf3; text-align: center; margin-right: auto; margin-left: auto; border-radius: .5rem;`}
-          type='submit'
-        >SUBMIT</button>
+        <SubmitButton status={submitStatus} />
       </form>
     </div>
   )
