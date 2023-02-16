@@ -13,49 +13,49 @@ const bridesmaids = [
     "last": "Nguyen",
     "role": "Matron of Honor - Sister of the Bride",
     "img": Nguyen.src,
-    "intro": "tincidunt lobortis feugiat vivamus at augue eget arcu dictum varius duis at consectetur lorem donec massa sapien faucibus et molestie ac feugiat"
+    "intro": "Alex Nguyen sets a standard. She holds herself to a level of compassion and caring that makes others want to follow. She's an example of how to nurture an environment where others feel safe, loved, and enabled to be their best."
   },
   {
     "first": "Randi",
     "last": "Taylor",
-    "role": "Maid of Honor - Sister of the Bride",
+    "role": "Matron of Honor - Sister of the Bride",
     "img": Erret.src,
-    "intro": "tincidunt lobortis feugiat vivamus at augue eget arcu dictum varius duis at consectetur lorem donec massa sapien faucibus et molestie ac feugiat"
-  },
-  {
-    "first": "Shelly",
-    "last": "Ferguson",
-    "role": "Bridesmaid",
-    "img": Ferguson.src,
-    "intro": "tincidunt lobortis feugiat vivamus at augue eget arcu dictum varius duis at consectetur lorem donec massa sapien faucibus et molestie ac feugiat"
-  },
-  {
-    "first": "Maddie",
-    "last": "Oney",
-    "role": "Bridesmaid",
-    "img": Oney.src,
-    "intro": "tincidunt lobortis feugiat vivamus at augue eget arcu dictum varius duis at consectetur lorem donec massa sapien faucibus et molestie ac feugiat"
-  },
-  {
-    "first": "Riley",
-    "last": "Neuhardt",
-    "role": "Bridesmaid",
-    "img": Neuhardt.src,
-    "intro": "tincidunt lobortis feugiat vivamus at augue eget arcu dictum varius duis at consectetur lorem donec massa sapien faucibus et molestie ac feugiat"
+    "intro": "Randi Taylor loves harder than anyone else and never fails to take care of those close to her. She is always the first to pick you up, dust you off, and leave you with the confidence to face those challenges that put you there in the first place."
   },
   {
     "first": "Jessica",
     "last": "Ridgeway",
     "role": "Bridesmaid",
     "img": Ridgeway.src,
-    "intro": "tincidunt lobortis feugiat vivamus at augue eget arcu dictum varius duis at consectetur lorem donec massa sapien faucibus et molestie ac feugiat"
+    "intro": "Jessica Ridgeway is the kind of friend that distance never changes. Jess makes you a priority. You feel heard with Jess. You feel loved with Jess. She is as kind as can possibly be and always has a positive energy to share with those around her."
+  },
+  {
+    "first": "Shelly",
+    "last": "Ferguson",
+    "role": "Bridesmaid",
+    "img": Ferguson.src,
+    "intro": "Shelly Ferguson embodies strength in so many different ways. It's that strength that provides such a bond in her relationships. She loves in a way that never lets you question yourself or your place in her life."
+  },
+  {
+    "first": "Riley",
+    "last": "Neuhardt",
+    "role": "Bridesmaid",
+    "img": Neuhardt.src,
+    "intro": "Riley Neuhardt is acutely atuned to the needs of others. She doesn't just listen but acts on and works with what she hears. She can provide the best advice or simply a space to sound-off when needed."
+  },
+  {
+    "first": "Maddie",
+    "last": "Oney",
+    "role": "Bridesmaid",
+    "img": Oney.src,
+    "intro": "Always the life of the party, Maddie Oney brings so much happiness to every situation she's a part of. She has a truly infectious smile that elevates everyone she's with. It's impossible to feel anything but seen and encouraged when you're with her."
   },
   {
     "first": "Olivia",
     "last": "Rump",
     "role": "Bridesmaid",
     "img": Rump.src,
-    "intro": "tincidunt lobortis feugiat vivamus at augue eget arcu dictum varius duis at consectetur lorem donec massa sapien faucibus et molestie ac feugiat"
+    "intro": "With Olivia Rump, nothing is ever off limits. She carries herself with such confidence you can't help but feel confident with her by your side. She'll never fail to make you laugh, even if it's at your own expense, but will always leave you feeling secure in who you are."
   },
 ];
 

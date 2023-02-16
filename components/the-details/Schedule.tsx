@@ -39,19 +39,19 @@ const Venue = () => {
         <FontAwesomeIcon icon={faCircleDot} css={css`grid-column: 2; grid-row: 1; color: #13273f; place-self: center; background: #fffaf3;`} />
         <div css={css`grid-column: 3; grid-row: 2; text-align: left;`}>
           <div css={css`font-family: ${subHeaderFont.style.fontFamily}; font-size: 2rem; line-height: 1.5rem;`}>Cocktails</div>
-          <div css={css`font-family: ${textFont.style.fontFamily}; font-weight: 700; font-size: 1rem; letter-spacing: .25rem;`}>5:50</div>
+          <div css={css`font-family: ${textFont.style.fontFamily}; font-weight: 700; font-size: 1rem; letter-spacing: .25rem;`}>6:00</div>
         </div>
         <FontAwesomeIcon icon={faMartiniGlass} css={css`grid-column: 1; grid-row: 2; color: #13273f; justify-self: right; align-self: center; color: #13273f; font-size: 1.5rem;`} />
         <FontAwesomeIcon icon={faCircleDot} css={css`grid-column: 2; grid-row: 2; color: #13273f; place-self: center; background: #fffaf3;`} />
         <div css={css`grid-column: 1; grid-row: 3; text-align: right;`}>
           <div css={css`font-family: ${subHeaderFont.style.fontFamily}; font-size: 2rem; line-height: 1.5rem;`}>Dinner</div>
-          <div css={css`font-family: ${textFont.style.fontFamily}; font-weight: 700; font-size: 1rem; letter-spacing: .25rem;`}>6:30</div>
+          <div css={css`font-family: ${textFont.style.fontFamily}; font-weight: 700; font-size: 1rem; letter-spacing: .25rem;`}>7:30</div>
         </div>
         <FontAwesomeIcon icon={faUtensils} css={css`grid-column: 3; grid-row: 3; color: #13273f; align-self: center; color: #13273f; font-size: 1.5rem;`} />
         <FontAwesomeIcon icon={faCircleDot} css={css`grid-column: 2; grid-row: 3; color: #13273f; place-self: center; background: #fffaf3;`} />
         <div css={css`grid-column: 3; grid-row: 4; text-align: left;`}>
           <div css={css`font-family: ${subHeaderFont.style.fontFamily}; font-size: 2rem; line-height: 1.5rem;`}>Dancing</div>
-          <div css={css`font-family: ${textFont.style.fontFamily}; font-weight: 700; font-size: 1rem; letter-spacing: .25rem;`}>7:00</div>
+          <div css={css`font-family: ${textFont.style.fontFamily}; font-weight: 700; font-size: 1rem; letter-spacing: .25rem;`}>8:30</div>
         </div>
         <FontAwesomeIcon icon={faMusic} css={css`grid-column: 1; grid-row: 4; color: #13273f; justify-self: right; align-self: center; color: #13273f; font-size: 1.5rem;`} />
         <FontAwesomeIcon icon={faCircleDot} css={css`grid-column: 2; grid-row: 4; color: #13273f; place-self: center; background: #fffaf3;`} />

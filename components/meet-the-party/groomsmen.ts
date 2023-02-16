@@ -29,18 +29,18 @@ const groomsmen = [
     "intro": "Jordan Seich takes small moments and makes them feel so much bigger. Being around Jordan always leaves you with a smile on your face and a story to share with others. He's your biggest hype man and your staunchest supporter."
   },
   {
-    "first": "Blake",
-    "last": "Hampshire",
-    "role": "Groomsman",
-    "img": Hampshire.src,
-    "intro": "Blake Hampshire navigates life's worries in a way that makes you forget your own. He'll give you the hardest time but stand up if anyone else tries to. There's no one better to have in your corner."
-  },
-  {
     "first": "Taylor",
     "last": "Larr",
     "role": "Groomsman",
     "img": Larr.src,
     "intro": "Taylor Larr fills so many roles. He can be safe and comforting yet deliver the truth you need to hear. He can be your crutch but won't hesitate to lean back on you. All of these different colors make Taylor such a unique and important person."
+  },
+  {
+    "first": "Blake",
+    "last": "Hampshire",
+    "role": "Groomsman",
+    "img": Hampshire.src,
+    "intro": "Blake Hampshire navigates life's worries in a way that makes you forget your own. He'll give you the hardest time but stand up if anyone else tries to. There's no one better to have in your corner."
   },
   {
     "first": "Tyler",
