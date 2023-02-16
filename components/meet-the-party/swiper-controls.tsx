@@ -4,7 +4,7 @@ import { useSwiper } from "swiper/react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleUp, faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import { Raleway } from "@next/font/google";
-import groomsmen from "./groomsmen";
+import Image from "next/image";
 
 const textFont = Raleway({
   weight: "400",
@@ -97,7 +97,14 @@ useEffect(() => {
 return (
   <div css={css`display: flex; flex-direction: column; justify-content: space-around; padding: 0 .5rem; height: 100%;`}>
     {group.map((member, i) => (
-      <img key={i} src={member.img} css={[activeIndex === i ? activeIcon : inactiveIcon, css`border-radius: 100%;`]} onClick={() => swiper.slideTo(i)}/>
+      <Image 
+        key={i} 
+        src={member.img}
+        height={50}
+        width={50}
+        alt={`${member.first} profile icon`} 
+        css={[activeIndex === i ? activeIcon : inactiveIcon, css`border-radius: 100%; width: 50px; height: 50px;`]}
+        onClick={() => swiper.slideTo(i)}/>
     ))}
   </div>
 )
