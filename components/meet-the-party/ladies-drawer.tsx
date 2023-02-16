@@ -89,7 +89,7 @@ const LadiesDrawer = ({isOpen, onClose}: {isOpen: boolean, onClose: () => void})
             <img css={css`align-self: flex-end;`} src={bridesmaid.img} />
             <div 
               css={css`
-              font-style: ${textFont.style.fontFamily};
+              font-family: ${textFont.style.fontFamily};
               color: #13273f;
               text-align: center;
               `}
