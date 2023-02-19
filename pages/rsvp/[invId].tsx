@@ -43,17 +43,23 @@ const parseAttendee = (rawAttendee: string[]): Attendee => ({
   other: rawAttendee[8],
 });
 
+const allReplied = (attendees: AttendeeMap): boolean => !Object.values(attendees).some(attendee => typeof attendee.attending === 'undefined');
+
 const RSVP = ({ attendeeData, invId }: { attendeeData: string[][], invId: string }) => {
-  const [submitStatus, setSubmitStatus] = useState('ready');
   const [attendees, setAttendees]: [AttendeeMap, (attendees: AttendeeMap) => void] = useState(attendeeData.reduce((attendeeMap, attendee) => ({
     ...attendeeMap,
     [`${attendee[1]}`]: parseAttendee(attendee) 
   }), {}));
+  const [submitStatus, setSubmitStatus] = useState(allReplied(attendees) ? 'incomplete' : 'ready');
   const [ qsOrCs, setQsOrCs ] = useState(attendeeData[0][9]);
   const [ message, setMessage ] = useState(attendeeData[0][10]);
 
   useEffect(() => {
-    setSubmitStatus('ready');
+    if (allReplied(attendees)) {
+      setSubmitStatus('ready');
+    } else {
+      setSubmitStatus('incomplete');
+    }
   }, [attendees, qsOrCs, message])
   
   return (
@@ -112,6 +118,9 @@ const RSVP = ({ attendeeData, invId }: { attendeeData: string[][], invId: string
             value={message}
             onChange={(e) => setMessage(e.target.value)}
           />
+        </div>
+        <div css={css`text-align: center; font-family: ${textFont.style.fontFamily}; color: #a3a3a3; font-style: italic;`}>
+          {submitStatus === 'incomplete' && "Please provide a response for all invitees before submitting. You can return to make updates at any time."}
         </div>
         <SubmitButton 
           status={submitStatus}
