@@ -148,7 +148,7 @@ export default function Home() {
           />
         </div>
         <Date>5<span>&#8901;</span>13<span>&#8901;</span>23</Date>
-        <RSVPButton role={'link'} href="/rsvp">RSVP</RSVPButton>
+        {/* <RSVPButton role={'link'} href="/rsvp">RSVP</RSVPButton> */}
       </Main>
       <OurStory />
       <MeetTheParty />

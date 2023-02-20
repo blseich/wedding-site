@@ -50,7 +50,7 @@ const Drawer = ({isOpen, onNavigate }: {isOpen: boolean, onNavigate: () => void}
       <Link href="/#crew" onClick={onNavigate}>The Crew</Link>
       <Link href="/#details" onClick={onNavigate}>The Details</Link>
       <Link href="/#registry" onClick={onNavigate}>The Registry</Link>
-      <Link href="/rsvp" onClick={onNavigate} id="rsvp">RSVP</Link>
+      {/* <Link href="/rsvp" onClick={onNavigate} id="rsvp">RSVP</Link> */}
     </div>
   )
 
