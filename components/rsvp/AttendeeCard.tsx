@@ -38,11 +38,11 @@ const AttendeeRsvpCard = ({ attendee, onUpdate }: { attendee: Attendee, onUpdate
       <div css={css`display: flex; justify-content: space-around; margin: 1rem 0;`}>
         <div css={css`display: flex; flex-direction: column; align-items: center;`}>
           <RadioButton type="radio" name={`${attendee.first}_attending`} id={`${attendee.first}_yes`} defaultChecked={attendee.attending === true} onChange={(e) => update("attending", e.target.checked)}/>
-          <RadioButtonLabel htmlFor={`${attendee.first}_yes`}>Joyfully Accepts</RadioButtonLabel>
+          <RadioButtonLabel htmlFor={`${attendee.first}_yes`}>Graciously Accepts</RadioButtonLabel>
         </div>
         <div css={css`display: flex; flex-direction: column; align-items: center;`}>
           <RadioButton type="radio" name={`${attendee.first}_attending`} id={`${attendee.first}_no`} defaultChecked={attendee.attending === false} onChange={(e) => update("attending", !e.target.checked)}/>
-          <RadioButtonLabel htmlFor={`${attendee.first}_no`}>Regretfully Declines</RadioButtonLabel>
+          <RadioButtonLabel htmlFor={`${attendee.first}_no`}>Respectfully Declines</RadioButtonLabel>
         </div>
       </div>
       <div css={css`display: grid; grid-template-rows: 1fr 1fr 1fr 1fr; grid-template-columns: 1fr 1fr; max-width: 75%; margin-right: auto; margin-left: auto; font-family: ${textFont.style.fontFamily}`}>
