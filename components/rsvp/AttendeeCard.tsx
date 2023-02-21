@@ -7,7 +7,8 @@ import { Raleway, Playfair_Display_SC } from '@next/font/google';
 
 const headerFont = Playfair_Display_SC({
   weight: "400",
-  subsets: ['latin']
+  subsets: ['latin'],
+  display: 'swap',
 });
 
 const textFont = Raleway({

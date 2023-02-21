@@ -14,12 +14,14 @@ import useOnScreen from '../../hooks/use-on-screen';
 
 const headerFont = Playfair_Display_SC({
   weight: "400",
-  subsets: ['latin']
+  subsets: ['latin'],
+  display: 'swap',
 });
 
 const subHeaderFont = Great_Vibes({
   weight: "400",
-  subsets: ['latin']
+  subsets: ['latin'],
+  display: 'swap',
 });
 
 const OurStoryBackground = styled.div`

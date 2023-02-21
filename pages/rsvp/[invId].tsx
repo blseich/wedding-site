@@ -8,7 +8,8 @@ import Link from 'next/link';
 
 const headerFont = Playfair_Display_SC({
   weight: "400",
-  subsets: ['latin']
+  subsets: ['latin'],
+  display: 'swap',
 });
 
 const textFont = Raleway({

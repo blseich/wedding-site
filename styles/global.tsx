@@ -1,7 +1,9 @@
 import { css, Global } from '@emotion/react';
-import { base } from './colors';
 
 import "swiper/css/bundle";
+import "@fontsource/playfair-display-sc";
+import "@fontsource/great-vibes";
+import "@fontsource/raleway";
 
 
 const globalStyles = (

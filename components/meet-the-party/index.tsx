@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import styled from '@emotion/styled';
-import { css, keyframes } from '@emotion/react';
+import { css } from '@emotion/react';
 import { ParallaxBanner, ParallaxBannerLayer } from 'react-scroll-parallax';
 import Image from 'next/image';
 import { Great_Vibes } from '@next/font/google';
@@ -8,19 +8,17 @@ import laughing_couple_portrait from '../../public/Maddi&Brandon_Couples-33.jpg'
 import laughing_couple_landscape from '../../public/Maddi&Brandon_Couples-35.jpg';
 import dress from '../../public/dress.svg';
 import suit from '../../public/suit.svg';
-import flowers from '../../public/flowers.svg';
-import rings from '../../public/rings.svg';
 
 import "swiper/css";
 import LadiesDrawer from './ladies-drawer';
 import GentlemenDrawer from './gentlemen-drawer';
-import LittleOnesDrawer from './little-ones-drawer';
 
 import useOnScreen from '../../hooks/use-on-screen';
 
 const subHeaderFont = Great_Vibes({
   weight: "400",
-  subsets: ['latin']
+  subsets: ['latin'],
+  display: 'swap',
 });
 
 const MeetTheParty = () => {

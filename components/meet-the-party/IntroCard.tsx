@@ -14,6 +14,7 @@ const subHeaderFont = Herr_Von_Muellerhoff({
 const textFont = Raleway({
   weight: "400",
   subsets: ['latin'],
+  display: 'swap',
 });
 
 const Wrapper = styled.div<{flip?: boolean}>`

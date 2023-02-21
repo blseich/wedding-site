@@ -3,27 +3,24 @@ import Image from 'next/image';
 import color_bg from '../public/BackgroundStairs_Centered-color.jpg';
 import bw_bg from '../public/BackgroundStairs_Centered-bw.jpg';
 import say_i_do from '../public/Say_I_Do.svg';
-import { Playfair_Display_SC, Francois_One, Raleway } from '@next/font/google';
 import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
 import OurStory from '../components/our-story';
 import MeetTheParty from '../components/meet-the-party';
 import TheDetails from '../components/the-details';
 import Registry from '../components/registry';
+import { Playfair_Display_SC, Raleway } from '@next/font/google';
 
 const headerFont = Playfair_Display_SC({
   weight: "400",
   subsets: ['latin'],
+  display: 'swap',
 });
 
 const dateFont = Raleway({
   weight: "600",
   subsets: ['latin'],
-});
-
-const linkFont = Francois_One({
-  weight: "400",
-  subsets: ['latin'],
+  display: 'swap'
 });
 
 const fadingBgImage = keyframes`

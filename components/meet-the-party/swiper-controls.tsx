@@ -9,6 +9,7 @@ import Image from "next/image";
 const textFont = Raleway({
   weight: "400",
   subsets: ['latin'],
+  display: 'swap',
 });
 
 const nextPrevButton = css`

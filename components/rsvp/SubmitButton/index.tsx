@@ -13,6 +13,7 @@ const headerFont = Playfair_Display_SC({
 const textFont = Raleway({
   weight: "400",
   subsets: ['latin'],
+  display: 'swap',
 });
 
 const SubmitButtonWrapper = styled.div`

@@ -11,17 +11,20 @@ import { faCircleDot, faHand, faHeart, faMartiniGlass, faMusic, faUtensils } fro
 
 const headerFont = Playfair_Display_SC({
   weight: "400",
-  subsets: ['latin']
+  subsets: ['latin'],
+  display: 'swap',
 });
 
 const subHeaderFont = Great_Vibes({
   weight: "400",
-  subsets: ['latin']
+  subsets: ['latin'],
+  display: 'swap',
 });
 
 const textFont = Raleway({
   weight: "400",
   subsets: ['latin'],
+  display: 'swap',
 });
 
 const Venue = () => {

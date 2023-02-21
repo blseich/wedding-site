@@ -29,6 +29,7 @@ const subHeaderFont = Great_Vibes({
 const textFont = Raleway({
   weight: "400",
   subsets: ['latin'],
+  display: 'swap',
 });
 
 const OurStoryBackground = styled.div`

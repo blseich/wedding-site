@@ -3,7 +3,8 @@ import { Great_Vibes } from '@next/font/google';
 
 const subHeaderFont = Great_Vibes({
   weight: "400",
-  subsets: ['latin']
+  subsets: ['latin'],
+  display: 'swap',
 });
 
 export const RadioButton = styled.input`
