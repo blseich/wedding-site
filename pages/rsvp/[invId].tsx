@@ -142,7 +142,7 @@ export async function getServerSideProps({ params }: { params: { invId: string }
   });
 
   let spreadsheetId = '1si9DGtGks2MAh4xeWXZM0JVgU0ccVZSbKnGXQd6-CGI';
-  let sheetName = 'RSVPs!A2:K137';
+  let sheetName = 'RSVPs!A2:K138';
   let sheets = google.sheets('v4');
   const sheetsRes = await sheets.spreadsheets.values.get({
     auth: client,
