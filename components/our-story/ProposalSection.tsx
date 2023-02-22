@@ -1,16 +1,11 @@
 import Image from 'next/image';
 import proposal1 from '../../public/proposal1.jpg';
 import { css } from '@emotion/react';
-import { Great_Vibes } from '@next/font/google';
-
-const subHeaderFont = Great_Vibes({
-  weight: "400",
-  subsets: ['latin'],
-});
+import { subHeaderFont } from '../../styles/fonts';
 
 const ProposalSection = () => (
   <>
-    <div css={css`color: #fffaf3; font-size: 2.5rem; font-family: ${subHeaderFont.style.fontFamily}; text-align: left;`}>
+    <div css={css`color: #fffaf3; font-size: 2.5rem; ${subHeaderFont} text-align: left;`}>
       When She<br /><span css={css`margin-left: 20%;`}>&quot;Said&quot; Yes</span>
     </div>
     <div>
@@ -31,7 +26,8 @@ const ProposalSection = () => (
         height: auto;
         border: 2px solid #fffaf3;
         border-radius: 2rem;
-        padding: 2x;
+        margin-right: auto;
+        margin-left: auto;
       `}
       src={proposal1.src}
       width={proposal1.width}

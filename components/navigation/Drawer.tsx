@@ -1,11 +1,6 @@
 import { css } from "@emotion/react";
-import { Playfair_Display_SC } from "@next/font/google";
 import Link from "next/link";
-
-const headerFont = Playfair_Display_SC({
-  weight: "400",
-  subsets: ['latin'],
-});
+import { headerFont } from "../../styles/fonts";
 
 
 const Drawer = ({isOpen, onNavigate }: {isOpen: boolean, onNavigate: () => void}) => {
@@ -23,8 +18,8 @@ const Drawer = ({isOpen, onNavigate }: {isOpen: boolean, onNavigate: () => void}
       ${isOpen ? 'top: 2rem' : 'top: -28rem'};
       
       & a {
+        ${headerFont}
         color: #fffaf3;
-        font-family: ${headerFont.style.fontFamily};
         letter-spacing: .5rem;
         text-decoration: none;
         font-size: 1.5rem;

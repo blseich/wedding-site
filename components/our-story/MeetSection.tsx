@@ -1,16 +1,11 @@
 import Image from 'next/image';
 import short_north_pint_house from '../../public/short_north_pint_house.jpg';
-import { Great_Vibes } from '@next/font/google';
 import { css } from '@emotion/react';
-
-const subHeaderFont = Great_Vibes({
-  weight: "400",
-  subsets: ['latin'],
-});
+import { subHeaderFont } from '../../styles/fonts';
 
 const MeetSection = () => (
   <>
-    <div css={css`color: #fffaf3; font-size: 2.5rem; font-family: ${subHeaderFont.style.fontFamily}; text-align: left;`}>
+    <div css={css`color: #fffaf3; font-size: 2.5rem; ${subHeaderFont} text-align: left;`}>
       How We<br /><span css={css`margin-left: 20%;`}>Became Us</span>
     </div>
     <div>

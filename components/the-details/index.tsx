@@ -1,7 +1,6 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 import { ParallaxBanner, ParallaxBannerLayer } from 'react-scroll-parallax';
-import { Playfair_Display_SC, Great_Vibes } from '@next/font/google';
 import couple_and_dog_portrait from '../../public/Maddi&Brandon_Couples-5.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLocationDot, faStopwatch, faPlane, faCircleInfo, faXmark } from '@fortawesome/free-solid-svg-icons';
@@ -11,18 +10,7 @@ import Schedule from './Schedule';
 import Travel from './Travel';
 import Info from './Info';
 import useOnScreen from '../../hooks/use-on-screen';
-
-const headerFont = Playfair_Display_SC({
-  weight: "400",
-  subsets: ['latin'],
-  display: 'swap',
-});
-
-const subHeaderFont = Great_Vibes({
-  weight: "400",
-  subsets: ['latin'],
-  display: 'swap',
-});
+import { headerFont, subHeaderFont } from '../../styles/fonts';
 
 const OurStoryBackground = styled.div`
 height: 100%;
@@ -45,7 +33,7 @@ grid-template-rows: 1fr;
 place-items: center;
 height: 100%;
 width: 100%;
-font-family: ${subHeaderFont.style.fontFamily};
+${subHeaderFont}
 font-size: 3rem;
 color: #fffaf3;
 text-shadow: 1px 1px 2px black;
@@ -60,8 +48,7 @@ justify-content: center;
 align-item: center;
 
 h1 {
-  font-family: ${headerFont.style.fontFamily};
-  font-weight: ${headerFont.style.fontWeight};
+  ${headerFont}
   font-size: 1rem;
   padding: 1rem 0;
   letter-spacing: .5rem;

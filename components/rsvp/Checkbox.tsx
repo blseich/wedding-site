@@ -1,10 +1,5 @@
 import styled from '@emotion/styled';
-import { Raleway } from '@next/font/google';
-
-const textFont = Raleway({
-  weight: "400",
-  subsets: ['latin']
-});
+import { textFont } from '../../styles/fonts';
 
 export const Checkbox = styled.input`
   &[type="checkbox"] {
@@ -44,7 +39,7 @@ export const Checkbox = styled.input`
       // }
 
 export const RadioButtonLabel = styled.label`
-  font-family: ${textFont.style.fontFamily};
+  ${textFont}
   font-size: 1.5rem;
   color: #13273f;
 `;

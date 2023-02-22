@@ -1,21 +1,9 @@
 import { css } from "@emotion/react"
 import { useEffect, useState } from "react";
+import { headerFont, textFont } from "../../styles/fonts";
 import { Checkbox } from "./Checkbox"
 import Name from "./name"
 import { RadioButton, RadioButtonLabel } from "./RadioButton";
-import { Raleway, Playfair_Display_SC } from '@next/font/google';
-
-const headerFont = Playfair_Display_SC({
-  weight: "400",
-  subsets: ['latin'],
-  display: 'swap',
-});
-
-const textFont = Raleway({
-  weight: "400",
-  subsets: ['latin']
-});
-
 
 type Attendee = {
   first: string,
@@ -46,8 +34,8 @@ const AttendeeRsvpCard = ({ attendee, onUpdate }: { attendee: Attendee, onUpdate
           <RadioButtonLabel htmlFor={`${attendee.first}_no`}>Respectfully Declines</RadioButtonLabel>
         </div>
       </div>
-      <div css={css`display: grid; grid-template-rows: 1fr 1fr 1fr 1fr; grid-template-columns: 1fr 1fr; max-width: 75%; margin-right: auto; margin-left: auto; font-family: ${textFont.style.fontFamily}`}>
-        <div css={css`grid-column: 1 / 3; grid-row: 1; border-bottom: 2px solid #13273f; padding: 0.5rem 0; text-align: center; font-size: 1.5rem; font-family: ${headerFont.style.fontFamily}; line-height: 1.25rem;`}>
+      <div css={css`${textFont} display: grid; grid-template-rows: 1fr 1fr 1fr 1fr; grid-template-columns: 1fr 1fr; max-width: 75%; margin-right: auto; margin-left: auto;`}>
+        <div css={css`${headerFont} grid-column: 1 / 3; grid-row: 1; border-bottom: 2px solid #13273f; padding: 0.5rem 0; text-align: center; font-size: 1.5rem; line-height: 1.25rem;`}>
           Food Accomodations
         </div>
         <div css={css`grid-column: 1; grid-row: 2; display: flex; align-items: center;`}>

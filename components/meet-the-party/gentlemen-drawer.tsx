@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
-import { Playfair_Display_SC, Raleway, Great_Vibes } from '@next/font/google';
+import { headerFont, subHeaderFont, textFont } from '../../styles/fonts';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import groomsmen from './groomsmen';
 import {
@@ -9,39 +9,20 @@ import {
   IconSelectors,
 } from './swiper-controls';
 
-const headerFont = Playfair_Display_SC({
-  weight: "400",
-  subsets: ['latin'],
-});
-
-const subHeaderFont = Great_Vibes({
-  weight: "400",
-  subsets: ['latin'],
-  display: 'swap',
-});
-
-const textFont = Raleway({
-  weight: "400",
-  subsets: ['latin'],
-  display: 'swap',
-});
-
 const Name = styled.div`
+  ${headerFont}
   color: #13273f;
   font-size: 1.5rem;
-  font-family: ${headerFont.style.fontFamily};
-  font-weight: ${headerFont.style.fontWeight};
   letter-spacing: .25em;
   padding: 0 .5rem;
   text-align: right;
 `;
 
 const Role = styled.div`
+  ${subHeaderFont}
   font-size: 1rem;
   padding: 0 .5rem;
   color: #13273f;
-  font-family: ${subHeaderFont.style.fontFamily};
-  font-weight: ${subHeaderFont.style.fontWeight};
   text-align: right;
 `;
 
@@ -75,7 +56,7 @@ const GentlemenDrawer = ({isOpen, onClose}: {isOpen: boolean, onClose: () => voi
               <img css={css`align-self: flex-start;`} src={groomsman.img} />
               <div 
                 css={css`
-                  font-family: ${textFont.style.fontFamily};
+                  ${textFont}
                   color: #13273f;
                   text-align: center;
                 `}
@@ -99,7 +80,7 @@ const GentlemenDrawer = ({isOpen, onClose}: {isOpen: boolean, onClose: () => voi
           color: #fffaf3;
           border: none;
           border-radius: 1rem 0 0 1rem;
-          font-family: ${textFont.style.fontFamily};
+          ${textFont}
         `}
         onClick={(e) => { onClose(); e.stopPropagation();}}
       >

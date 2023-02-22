@@ -1,22 +1,10 @@
 import {google} from 'googleapis';
 import { css } from '@emotion/react';
 import AttendeeRsvpCard from '../../components/rsvp/AttendeeCard';
-import { Raleway, Playfair_Display_SC } from '@next/font/google';
 import { useEffect, useState } from 'react';
 import SubmitButton from '../../components/rsvp/SubmitButton';
 import Link from 'next/link';
-
-const headerFont = Playfair_Display_SC({
-  weight: "400",
-  subsets: ['latin'],
-  display: 'swap',
-});
-
-const textFont = Raleway({
-  weight: "400",
-  subsets: ['latin']
-});
-
+import { headerFont, textFont } from '../../styles/fonts';
 
 type Attendee = {
   first: string,
@@ -65,7 +53,7 @@ const RSVP = ({ attendeeData, invId }: { attendeeData: string[][], invId: string
   
   return (
     <div css={css`min-height: 100%; max-width: 650px; margin-right: auto; margin-left: auto; background: #fffaf3; padding: 3rem 1rem;`}>
-      <div css={css`color: #13273f; font-size: 4rem; font-family: ${headerFont.style.fontFamily}; border-bottom: 2px solid #13273f;`}>RSVP</div>
+      <div css={css`color: #13273f; font-size: 4rem; ${headerFont} border-bottom: 2px solid #13273f;`}>RSVP</div>
       <form
         css={css`display: flex; flex-direction: column; gap: 2rem; margin-top: 1rem;`}
         onSubmit={async (e) => {
@@ -97,7 +85,7 @@ const RSVP = ({ attendeeData, invId }: { attendeeData: string[][], invId: string
           )
         })}
         <div>
-          <div css={css`font-size: 1.5rem; font-family: ${headerFont.style.fontFamily}; text-align: center;`}>
+          <div css={css`font-size: 1.5rem; ${headerFont} text-align: center;`}>
             Questions or Comments:
           </div>
           <textarea
@@ -109,7 +97,7 @@ const RSVP = ({ attendeeData, invId }: { attendeeData: string[][], invId: string
           />
         </div>
         <div>
-          <div css={css`font-size: 1.5rem; font-family: ${headerFont.style.fontFamily}; text-align: center;`}>
+          <div css={css`font-size: 1.5rem; ${headerFont} text-align: center;`}>
             Message to the Couple:
           </div>
           <textarea 
@@ -120,7 +108,7 @@ const RSVP = ({ attendeeData, invId }: { attendeeData: string[][], invId: string
             onChange={(e) => setMessage(e.target.value)}
           />
         </div>
-        <div css={css`text-align: center; font-family: ${textFont.style.fontFamily}; color: #a3a3a3; font-style: italic;`}>
+        <div css={css`text-align: center; ${textFont} color: #a3a3a3; font-style: italic;`}>
           {submitStatus === 'incomplete' && "Please provide a response for all invitees before submitting. You can return to make updates at any time."}
         </div>
         <SubmitButton 

@@ -1,11 +1,5 @@
 import styled from '@emotion/styled';
-import { Great_Vibes } from '@next/font/google';
-
-const subHeaderFont = Great_Vibes({
-  weight: "400",
-  subsets: ['latin'],
-  display: 'swap',
-});
+import { subHeaderFont } from '../../styles/fonts';
 
 export const RadioButton = styled.input`
   &[type="radio"] {
@@ -37,7 +31,7 @@ export const RadioButton = styled.input`
 `;
 
 export const RadioButtonLabel = styled.label`
-  font-family: ${subHeaderFont.style.fontFamily};
+  ${subHeaderFont}
   font-size: 1.5rem;
   color: #13273f;
 `;

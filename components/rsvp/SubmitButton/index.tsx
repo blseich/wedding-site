@@ -1,20 +1,8 @@
 import { css, SerializedStyles, keyframes } from "@emotion/react";
 import styled from "@emotion/styled";
-import { Playfair_Display_SC, Raleway } from "@next/font/google";
-import Link from "next/link";
+import { headerFont, textFont } from "../../../styles/fonts";
 
 const circleSize = '2rem'
-
-const headerFont = Playfair_Display_SC({
-  weight: "400",
-  subsets: ['latin'],
-});
-
-const textFont = Raleway({
-  weight: "400",
-  subsets: ['latin'],
-  display: 'swap',
-});
 
 const SubmitButtonWrapper = styled.div`
   display: inline-block;
@@ -61,7 +49,7 @@ const loadingButtonRotate = keyframes`
 `;
 
 const base = css`
-  font-family: ${headerFont.style.fontFamily};
+  ${headerFont}
   font-size: 1.5rem;
   display: inline-block;
   width: 100%;
@@ -201,7 +189,7 @@ const styleMap: { [key: string]: SerializedStyles[]} = {
 }
 
 const messageFadeIn = css`
-  font-family: ${textFont.style.fontFamily};
+  ${textFont}
   padding: 0.5rem 0;
   text-align: center;
   animation:

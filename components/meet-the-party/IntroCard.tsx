@@ -1,21 +1,5 @@
 import styled from '@emotion/styled';
-import { Playfair_Display_SC, Raleway, Herr_Von_Muellerhoff } from '@next/font/google';
-
-const headerFont = Playfair_Display_SC({
-  weight: "400",
-  subsets: ['latin'],
-});
-
-const subHeaderFont = Herr_Von_Muellerhoff({
-  weight: "400",
-  subsets: ['latin']
-});
-
-const textFont = Raleway({
-  weight: "400",
-  subsets: ['latin'],
-  display: 'swap',
-});
+import { headerFont, subHeaderFont, textFont } from '../../styles/fonts';
 
 const Wrapper = styled.div<{flip?: boolean}>`
   color: #fffaf3;
@@ -38,33 +22,30 @@ const Image = styled.img`
 `;
 
 const Name = styled.div`
+  ${headerFont}
   color: #fffaf3;
   font-size: 1.5rem;
   grid-column-start: text;
   grid-row-start: 2;
-  font-family: ${headerFont.style.fontFamily};
-  font-weight: ${headerFont.style.fontWeight};
   letter-spacing: .25em;
   padding: 0 .5rem;
 `;
 
 const Role = styled.div`
+  ${subHeaderFont}
   font-size: 1rem;
   grid-column-start: text;
   grid-row-start: 3;
   padding: 0 .5rem;
-  font-family: ${subHeaderFont.style.fontFamily};
-  font-weight: ${subHeaderFont.style.fontWeight};
 `;
 
 const Intro = styled.div`
+  ${textFont}
   color: #fffaf3;
   font-size: 1rem;
   grid-column: 1 / span 2;
   grid-row: 5;
   text-align: center;
-  font-family: ${textFont.style.fontFamily};
-  font-weight: ${textFont.style.fontWeight};
 `;
 
 const IntroCard = ({ first, last, role, img, intro, flip }: 

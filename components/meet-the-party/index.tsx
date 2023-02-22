@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 import { ParallaxBanner, ParallaxBannerLayer } from 'react-scroll-parallax';
 import Image from 'next/image';
-import { Great_Vibes } from '@next/font/google';
+import { subHeaderFont } from '../../styles/fonts';
 import laughing_couple_portrait from '../../public/Maddi&Brandon_Couples-33.jpg';
 import laughing_couple_landscape from '../../public/Maddi&Brandon_Couples-35.jpg';
 import dress from '../../public/dress.svg';
@@ -14,12 +14,6 @@ import LadiesDrawer from './ladies-drawer';
 import GentlemenDrawer from './gentlemen-drawer';
 
 import useOnScreen from '../../hooks/use-on-screen';
-
-const subHeaderFont = Great_Vibes({
-  weight: "400",
-  subsets: ['latin'],
-  display: 'swap',
-});
 
 const MeetTheParty = () => {
   const OurStoryBackground = styled.div`
@@ -38,12 +32,12 @@ const MeetTheParty = () => {
 `
 
 const Title = styled.div`
+  ${subHeaderFont}
   display: grid;
   grid-template-rows: 1fr;
   place-items: center;
   height: 100%;
   width: 100%;
-  font-family: ${subHeaderFont.style.fontFamily};
   font-size: 3rem;
   color: #fffaf3;
   text-shadow: 1px 1px 2px black;
@@ -94,9 +88,9 @@ return (
           align-items: center;
         `}>
         <div css={css`
+          ${subHeaderFont}
           font-size: 3rem;
           color: #fffaf3;
-          font-family: ${subHeaderFont.style.fontFamily};
           text-align: right;
         `}><span>The</span><br />Ladies</div>
         <Image 
@@ -133,9 +127,9 @@ return (
           alt={"suit"}
         />
        <div css={css`
+          ${subHeaderFont}
           font-size: 3rem;
           color: #fffaf3;
-          font-family: ${subHeaderFont.style.fontFamily};
           text-align: left;
         `}>The<br />Gentlemen</div>
         <GentlemenDrawer isOpen={open === 'gentlemen'} onClose={() => setOpen('')} />

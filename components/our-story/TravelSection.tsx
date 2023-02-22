@@ -2,12 +2,7 @@ import Image from 'next/image';
 import travel_collage from '../../public/travel_collage.jpg';
 
 import { css, keyframes } from '@emotion/react';
-import { Great_Vibes } from '@next/font/google';
-
-const subHeaderFont = Great_Vibes({
-  weight: "400",
-  subsets: ['latin'],
-});
+import { subHeaderFont } from '../../styles/fonts';
 
 const verticalScrollTop = keyframes`
   from { transform: translateY(0%) }
@@ -20,7 +15,7 @@ const verticalScrollBottom = keyframes `
 
 const LiveSection = () => (
   <>
-    <div css={css`color: #fffaf3; font-size: 2.5rem; font-family: ${subHeaderFont.style.fontFamily}; text-align: left;`}>
+    <div css={css`color: #fffaf3; font-size: 2.5rem; ${subHeaderFont} text-align: left;`}>
       Sharing<br /><span css={css`margin-left: 20%;`}>Adventures</span>
     </div>
     <div>

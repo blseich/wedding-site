@@ -2,36 +2,17 @@ import Image from 'next/image';
 import strongwater_logo from '../../public/strongwater_logo.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCar, faLocationDot } from '@fortawesome/free-solid-svg-icons';
-import { Playfair_Display_SC, Great_Vibes, Raleway } from '@next/font/google';
 import { css } from '@emotion/react';
-
-
-const headerFont = Playfair_Display_SC({
-  weight: "400",
-  subsets: ['latin'],
-  display: 'swap',
-});
-
-const subHeaderFont = Great_Vibes({
-  weight: "400",
-  subsets: ['latin'],
-  display: 'swap',
-});
-
-const textFont = Raleway({
-  weight: "400",
-  subsets: ['latin'],
-  display: 'swap',
-});
+import { headerFont, subHeaderFont, textFont } from '../../styles/fonts';
 
 const Venue = () => {
 
   return (
     <div css={css`display: flex; flex-direction: column; justify-content: center; height: 100%; padding: 3rem 1rem 0;`}>
-      <div css={css`font-size: 3rem; font-family: ${headerFont.style.fontFamily}; letter-spacing: .5rem;`}>Venue</div>
-      <div css={css`display: flex; flex-direction: column; justify-content: space-around; flex-grow: 1; font-family: ${textFont.style.fontFamily};`}>
+      <div css={css`font-size: 3rem; ${headerFont} letter-spacing: .5rem;`}>Venue</div>
+      <div css={css`display: flex; flex-direction: column; justify-content: space-around; flex-grow: 1; ${textFont}`}>
         <div css={css`display: flex; flex-direction: column; text-align: right;`}>
-          <div css={css`display: flex; align-items: end; justify-content: end; font-size: 2rem; font-family: ${subHeaderFont.style.fontFamily};`}>Location<FontAwesomeIcon icon={faLocationDot} css={css`margin-left: 1rem; font-size: 3rem; color: #13273f;`}/></div>
+          <div css={css`display: flex; align-items: end; justify-content: end; font-size: 2rem; ${subHeaderFont}`}>Location<FontAwesomeIcon icon={faLocationDot} css={css`margin-left: 1rem; font-size: 3rem; color: #13273f;`}/></div>
           Ceremony and Reception to be held at
           <div css={css`display: flex; flex-direction: column; align-items: end; margin-top: 1rem;`}>
             <a
@@ -59,7 +40,7 @@ const Venue = () => {
           </div>       
         </div>
         <div>
-        <div css={css`display: flex; align-items: end; font-size: 2rem; font-family: ${subHeaderFont.style.fontFamily};`}><FontAwesomeIcon icon={faCar} css={css`margin-right: 1rem; font-size: 3rem; color: #13273f;`}/>Parking</div>
+        <div css={css`display: flex; align-items: end; font-size: 2rem; ${subHeaderFont}`}><FontAwesomeIcon icon={faCar} css={css`margin-right: 1rem; font-size: 3rem; color: #13273f;`}/>Parking</div>
           Parking available in gravel lot across the street from the venue. Overnight parking permitted until 12pm the next day.
         </div>
       </div>

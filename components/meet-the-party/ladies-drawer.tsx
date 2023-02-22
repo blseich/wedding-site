@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
-import { Playfair_Display_SC, Raleway, Great_Vibes } from '@next/font/google';
+import { headerFont, subHeaderFont, textFont } from '../../styles/fonts';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import bridesmaids from './bridesmaids';
 import {
@@ -9,40 +9,21 @@ import {
   IconSelectors,
 } from './swiper-controls';
 
-const headerFont = Playfair_Display_SC({
-  weight: "400",
-  subsets: ['latin'],
-});
-
-const subHeaderFont = Great_Vibes({
-  weight: "400",
-  subsets: ['latin'],
-  display: 'swap',
-});
-
-const textFont = Raleway({
-  weight: "400",
-  subsets: ['latin'],
-  display: 'swap',
-});
-
 const Name = styled.div`
+  ${headerFont}
   color: #13273f;
   font-size: 1.5rem;
   grid-column-start: text;
   grid-row-start: 2;
-  font-family: ${headerFont.style.fontFamily};
-  font-weight: ${headerFont.style.fontWeight};
   letter-spacing: .25em;
   padding: 0 .5rem;
 `;
 
 const Role = styled.div`
+  ${subHeaderFont}
   font-size: 1rem;
   padding: 0 .5rem;
   color: #13273f;
-  font-family: ${subHeaderFont.style.fontFamily};
-  font-weight: ${subHeaderFont.style.fontWeight};
 `;
 
 const LadiesDrawer = ({isOpen, onClose}: {isOpen: boolean, onClose: () => void}) => {
@@ -67,13 +48,13 @@ const LadiesDrawer = ({isOpen, onClose}: {isOpen: boolean, onClose: () => void})
     >
       <button
         css={css`
+          ${textFont}
           height: 150px;
           width: 2rem;
           background: #13273f;
           color: #fffaf3;
           border: none;
           border-radius: 0 1rem 1rem 0;
-          font-family: ${textFont.style.fontFamily};
         `}
         onClick={(e) => { onClose(); e.stopPropagation();}}
       >
@@ -91,7 +72,7 @@ const LadiesDrawer = ({isOpen, onClose}: {isOpen: boolean, onClose: () => void})
             <img css={css`align-self: flex-end;`} src={bridesmaid.img} />
             <div 
               css={css`
-              font-family: ${textFont.style.fontFamily};
+              ${textFont}
               color: #13273f;
               text-align: center;
               `}

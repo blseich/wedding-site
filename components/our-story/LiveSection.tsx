@@ -3,12 +3,7 @@ import fitz from '../../public/fitzgerald_halloween.jpg';
 import bella from '../../public/bella.jpg';
 
 import { css } from '@emotion/react';
-import { Great_Vibes } from '@next/font/google';
-
-const subHeaderFont = Great_Vibes({
-  weight: "400",
-  subsets: ['latin'],
-});
+import { subHeaderFont } from '../../styles/fonts';
 
 const petPicStyles = css`
   flex-grow: 1;
@@ -22,7 +17,7 @@ const petPicStyles = css`
 
 const LiveSection = () => (
   <>
-    <div css={css`color: #fffaf3; font-size: 2.5rem; font-family: ${subHeaderFont.style.fontFamily}; text-align: left;`}>
+    <div css={css`${subHeaderFont} color: #fffaf3; font-size: 2.5rem; text-align: left;`}>
       Home Is<br /><span css={css`margin-left: 20%;`}>Where You Are</span>
     </div>
     <div>

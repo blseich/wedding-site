@@ -3,22 +3,16 @@ import { useEffect, useState } from "react";
 import { useSwiper } from "swiper/react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleUp, faAngleDown } from '@fortawesome/free-solid-svg-icons';
-import { Raleway } from "@next/font/google";
+import { textFont } from '../../styles/fonts';
 import Image from "next/image";
 
-const textFont = Raleway({
-  weight: "400",
-  subsets: ['latin'],
-  display: 'swap',
-});
-
 const nextPrevButton = css`
+${textFont}
 position: absolute;
 border: 0;
 background: none;
 color: #13273f;
 z-index: 1;
-font-family: ${textFont.style.fontFamily};
 display: flex;
 flex-direction: column;
 align-items: center;

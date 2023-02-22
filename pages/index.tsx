@@ -5,23 +5,11 @@ import bw_bg from '../public/BackgroundStairs_Centered-bw.jpg';
 import say_i_do from '../public/Say_I_Do.svg';
 import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
+import { headerFont, dateFont } from '../styles/fonts';
 import OurStory from '../components/our-story';
 import MeetTheParty from '../components/meet-the-party';
 import TheDetails from '../components/the-details';
 import Registry from '../components/registry';
-import { Playfair_Display_SC, Raleway } from '@next/font/google';
-
-const headerFont = Playfair_Display_SC({
-  weight: "400",
-  subsets: ['latin'],
-  display: 'swap',
-});
-
-const dateFont = Raleway({
-  weight: "600",
-  subsets: ['latin'],
-  display: 'swap'
-});
 
 const fadingBgImage = keyframes`
   from {opacity: 1}
@@ -29,8 +17,7 @@ const fadingBgImage = keyframes`
 `
 
 const Header = styled.h1`
-  font-family: ${headerFont.style.fontFamily};
-  font-weight: ${headerFont.style.fontWeight};
+  ${headerFont}
   color: #fffaf3;
   width: 100%;
   font-size: 2.5rem;
@@ -78,7 +65,7 @@ const Main = styled.main`
 `
 
 const Date = styled.div`
-  font-family: ${dateFont.style.fontFamily};
+  ${dateFont}
   color: #fffaf3;
   font-size: 2rem;
   display: flex;
@@ -101,7 +88,7 @@ const RSVPButton = styled.a`
   grid-column-start: 1;
   align-self: end;
   height: 3rem;
-  font-family: '__Playfair_Display_SC_40f3bc';
+  ${headerFont}
   font-size: 2rem;
   line-height: 1.5rem;
   background: #13273f;
