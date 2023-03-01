@@ -20,7 +20,7 @@ const Invitation = async (req: NextApiRequest, res: NextApiResponse) => {
   });
 
   let spreadsheetId = '1si9DGtGks2MAh4xeWXZM0JVgU0ccVZSbKnGXQd6-CGI';
-  let sheetName = 'RSVPs!A2:C140';
+  let sheetName = 'RSVPs!A2:C144';
   let sheets = google.sheets('v4');
 
   const sheetsRes = await sheets.spreadsheets.values.get({
