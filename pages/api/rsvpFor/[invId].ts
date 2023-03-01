@@ -21,7 +21,7 @@ const Invitation = async (req: NextApiRequest, res: NextApiResponse) => {
   });
 
   let spreadsheetId = '1si9DGtGks2MAh4xeWXZM0JVgU0ccVZSbKnGXQd6-CGI';
-  let sheetName = 'RSVPs!A2:B140';
+  let sheetName = 'RSVPs!A2:B144';
   let sheets = google.sheets('v4');
 
   const sheetsRes = await sheets.spreadsheets.values.get({
@@ -55,7 +55,7 @@ const Invitation = async (req: NextApiRequest, res: NextApiResponse) => {
       }
     ]
   }, [] as { range: string, majorDimension: string, values: string[][]}[]);
-
+  console.log(rangesToUpdate);
   rangesToUpdate[0].values[0][9] = qsOrCs;
   rangesToUpdate[0].values[0][10] = message;
 
