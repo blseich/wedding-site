@@ -21,7 +21,7 @@ const Invitation = async (req: NextApiRequest, res: NextApiResponse) => {
   });
 
   let spreadsheetId = '1si9DGtGks2MAh4xeWXZM0JVgU0ccVZSbKnGXQd6-CGI';
-  let sheetName = 'RSVPs!A2:B144';
+  let sheetName = `RSVPs!A2:B${process.env.GOOGLE_SHEETS_END_ROW}`;
   let sheets = google.sheets('v4');
 
   const sheetsRes = await sheets.spreadsheets.values.get({
